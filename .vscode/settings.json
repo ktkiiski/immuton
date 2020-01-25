@@ -1,0 +1,14 @@
+{
+    "eslint.format.enable": true,
+    "editor.formatOnSave": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/*.js": {
+            "when": "$(basename).ts"
+        },
+        "**/.DS_Store": true
+    }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "immuton",
+  "version": "0.0.0",
+  "description": "Functions for manipulating JavaScript objects and arrays with immutability principles",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "prepare": "npm test && tsc",
+    "test": "jest && npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ktkiiski/immuton.git"
+  },
+  "keywords": [
+    "immutable"
+  ],
+  "author": "Kimmo Kiiski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ktkiiski/immuton/issues"
+  },
+  "homepage": "https://github.com/ktkiiski/immuton#readme",
+  "devDependencies": {
+    "@types/jest": "^24.9.1",
+    "@typescript-eslint/eslint-plugin": "^2.17.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-typescript": "^6.3.1",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jest": "^23.6.0",
+    "jest": "^25.1.0",
+    "ts-jest": "^25.0.0",
+    "typescript": "^3.7.5"
+  }
+}
