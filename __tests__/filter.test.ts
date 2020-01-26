@@ -1,6 +1,6 @@
 import filter from '../filter';
 
-describe('filter', () => {
+describe('filter()', () => {
   it('returns array of matching items', () => {
     expect(filter([1, 2, 3, 4], (value) => value % 2 === 0)).toEqual([2, 4]);
   });

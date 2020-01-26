@@ -1,6 +1,6 @@
 import map from '../map';
 
-describe('map', () => {
+describe('map()', () => {
   it('transforms each value in the array', () => {
     expect(map([1, 2, 3], (value) => value * 2)).toEqual([2, 4, 6]);
   });
