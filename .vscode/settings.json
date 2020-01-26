@@ -10,5 +10,6 @@
             "when": "$(basename).ts"
         },
         "**/.DS_Store": true
-    }
+    },
+    "editor.tabSize": 2
 }
