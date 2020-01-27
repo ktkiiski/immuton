@@ -1,3 +1,5 @@
+import hasOwnProperty from './hasOwnProperty';
+
 /**
  * Returns a copy of the object with the given property name set to the value.
  * If the object already has that value on that property, then returns the original
@@ -7,8 +9,7 @@
  * @param value value to set
  */
 function set<T, K extends keyof T>(object: T, prop: K, value: T[K]): T {
-  const currentValue = object[prop];
-  if (currentValue === value) {
+  if (hasOwnProperty(object, prop) && object[prop] === value) {
     return object;
   }
   return { ...object, [prop]: value };
