@@ -4,3 +4,5 @@
 *.js
 # ...but not the ESLint configuration
 !.eslintrc.js
+# ...or Jest configuration
+!*.config.js
