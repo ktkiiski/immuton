@@ -7,7 +7,7 @@
  * @param array array of items to transform
  * @param fn function used to transform each item
  */
-export default function map<T, U>(array: T[], fn: (value: T, index: number, array: T[]) => U): U[] {
+function map<T, U>(array: T[], fn: (value: T, index: number, array: T[]) => U): U[] {
   let altered = false;
   const result = array.map((value, index, arr) => {
     const transformed = fn(value, index, arr);
@@ -18,3 +18,5 @@ export default function map<T, U>(array: T[], fn: (value: T, index: number, arra
   });
   return altered ? result : (array as unknown[] as U[]);
 }
+
+export default map;
