@@ -2,3 +2,5 @@
 node_modules
 # Do not lint compiled JavaScript files
 *.js
+# Do not lint compiled TypeScript definition files
+*.d.ts

@@ -1,6 +1,7 @@
 # Ignore installed node packages
 /node_modules
-# Ignore compiled JavaScript files...
+# Ignore compiled JavaScript and TypeScript definition files...
+*.d.ts
 *.js
 # ...but not the ESLint configuration
 !.eslintrc.js

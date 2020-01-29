@@ -4,9 +4,11 @@
   "description": "Functions for manipulating JavaScript objects and arrays with immutability principles",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "prepare": "npm test && tsc",
-    "test": "jest && npm run lint"
+    "clean": "find . -type d \\( -path ./node_modules \\) -prune -o -name '.*.js' -prune -o -name '*.config.js' -prune -o -type f \\( -name '*.js' -o -name '*.js.map' -o -name '*.d.ts' \\) -exec rm {} \\;",
+    "compile": "tsc",
+    "lint": "eslint . --ext .ts,.tsx",
+    "prepare": "npm run clean && npm test && npm run compile",
+    "test": "npm run clean && jest && npm run lint"
   },
   "repository": {
     "type": "git",
@@ -31,5 +33,17 @@
     "jest": "^25.1.0",
     "ts-jest": "^25.0.0",
     "typescript": "^3.7.5"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/__tests__/**/*.test.ts"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.test.json"
+      }
+    }
   }
 }
