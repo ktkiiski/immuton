@@ -1,3 +1,4 @@
+import concat from './concat';
 import extend from './extend';
 import filter from './filter';
 import flatten from './flatten';
@@ -9,6 +10,7 @@ import set from './set';
 import splice from './splice';
 
 export {
+  concat,
   extend,
   filter,
   flatten,

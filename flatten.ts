@@ -23,7 +23,8 @@ function flatten<T>(arrays: T[][]): T[] {
       result = array;
     }
   }
-  return result || [];
+  // Everything is empty?
+  return result || arrays[0] || [];
 }
 
 export default flatten;
