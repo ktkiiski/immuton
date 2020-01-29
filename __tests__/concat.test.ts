@@ -1,4 +1,5 @@
 import concat from '../concat';
+import empty from '../empty';
 
 describe('concat()', () => {
   it('concatenates the given arrays', () => {
@@ -18,9 +19,8 @@ describe('concat()', () => {
     expect(concat(nested)).toBe(nested);
     expect(concat([], [], nested, [], [])).toBe(nested);
   });
-  it('returns the original array if empty', () => {
-    const array: number[] = [];
-    expect(concat(array)).toBe(array);
+  it('returns the empty singleton array if empty', () => {
+    expect(concat([])).toBe(empty);
   });
   it('returns empty array if no parameters', () => {
     expect(concat()).toEqual([]);

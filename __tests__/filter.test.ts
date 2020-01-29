@@ -1,4 +1,5 @@
 import filter from '../filter';
+import empty from '../empty';
 
 describe('filter()', () => {
   it('returns array of matching items', () => {
@@ -19,9 +20,11 @@ describe('filter()', () => {
     expect(result).toBe(array);
     expect(result).toEqual([1, 2, 3, 4]);
   });
-  it('returns the original array if empty', () => {
-    const array: number[] = [];
-    expect(filter(array, (value) => value % 2 === 0)).toBe(array);
+  it('returns the empty singleton array if empty', () => {
+    expect(filter([], (value) => value % 2 === 0)).toBe(empty);
+  });
+  it('returns the empty singleton array if filtered out everything', () => {
+    expect(filter([1, 2], () => false)).toBe(empty);
   });
   it('returns correctly typed array when using type-guarded function', () => {
     const array: Array<number | boolean> = [1, true, false, 3];

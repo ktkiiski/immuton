@@ -1,3 +1,5 @@
+import empty from './empty';
+
 /**
  * Filters values from the given array and returns an array
  * only containing the matching items. If all the items match,
@@ -17,6 +19,9 @@ function filter<T>(array: T[], fn: (value: T, index: number, array: T[]) => bool
     }
     return matches;
   });
+  if (!result.length) {
+    return empty;
+  }
   return altered ? result : array;
 }
 

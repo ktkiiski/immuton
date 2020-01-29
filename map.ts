@@ -1,3 +1,5 @@
+import empty from './empty';
+
 /**
  * Transforms every value in the array using the given function
  * and returns an array with the transformed values. If every
@@ -16,6 +18,9 @@ function map<T, U>(array: T[], fn: (value: T, index: number, array: T[]) => U): 
     }
     return transformed;
   });
+  if (!result.length) {
+    return empty;
+  }
   return altered ? result : (array as unknown[] as U[]);
 }
 

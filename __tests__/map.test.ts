@@ -1,4 +1,5 @@
 import map from '../map';
+import empty from '../empty';
 
 describe('map()', () => {
   it('transforms each value in the array', () => {
@@ -17,8 +18,7 @@ describe('map()', () => {
     const array = [1, 2, 3];
     expect(map(array, (value) => value * 1)).toBe(array);
   });
-  it('returns the original array if empty', () => {
-    const array: number[] = [];
-    expect(map(array, (value) => value * 2)).toBe(array);
+  it('returns the empty singleton array if empty', () => {
+    expect(map([], (value) => value * 2)).toBe(empty);
   });
 });

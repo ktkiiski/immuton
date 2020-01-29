@@ -1,4 +1,5 @@
 import concat from './concat';
+import empty from './empty';
 import extend from './extend';
 import filter from './filter';
 import flatten from './flatten';
@@ -11,6 +12,7 @@ import splice from './splice';
 
 export {
   concat,
+  empty,
   extend,
   filter,
   flatten,

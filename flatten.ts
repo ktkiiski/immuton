@@ -1,3 +1,5 @@
+import empty from './empty';
+
 /**
  * Flattens an array of arrays to a flat array with the items from
  * the nested arrays. This only performs a shallow flatten.
@@ -17,14 +19,14 @@ function flatten<T>(arrays: T[][]): T[] {
       if (result != null) {
         // More than one non-empty array.
         // Fall back to native flatten.
-        return ([] as T[]).concat(...arrays);
+        return (empty as T[]).concat(...arrays);
       }
       // First non-empty array
       result = array;
     }
   }
   // Everything is empty?
-  return result || arrays[0] || [];
+  return result || empty;
 }
 
 export default flatten;
