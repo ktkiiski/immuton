@@ -24,10 +24,11 @@ describe('mapFilter()', () => {
     const array = [1, 2, 3];
     expect(mapFilter(array, (value) => value * 1)).toBe(array);
   });
-  it('returns the empty singleton if empty', () => {
-    expect(mapFilter([], (value) => value * 2)).toBe(empty);
+  it('returns the original array if empty', () => {
+    const array: number[] = [];
+    expect(mapFilter(array, (value) => value * 2)).toBe(array);
   });
-  it('returns the empty singleton if result is empty', () => {
+  it('returns the empty singleton if filtered out everything', () => {
     expect(mapFilter([1, 2, 3], () => undefined)).toBe(empty);
   });
 });

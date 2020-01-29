@@ -25,7 +25,6 @@ function flatten<T>(arrays: T[][]): T[] {
       result = array;
     }
   }
-  // Everything is empty?
   return result || empty;
 }
 

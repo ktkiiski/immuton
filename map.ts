@@ -18,10 +18,10 @@ function map<T, U>(array: T[], fn: (value: T, index: number, array: T[]) => U): 
     }
     return transformed;
   });
-  if (!result.length) {
-    return empty;
+  if (!altered) {
+    return array as unknown[] as U[];
   }
-  return altered ? result : (array as unknown[] as U[]);
+  return result.length ? result : empty;
 }
 
 export default map;

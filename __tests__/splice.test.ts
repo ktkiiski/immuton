@@ -24,8 +24,9 @@ describe('splice()', () => {
     const array = [1, 2, 3];
     expect(splice(array, 1, 0)).toBe(array);
   });
-  it('returns the empty singleton array if empty and not adding anything', () => {
-    expect(splice([], 1, 1)).toBe(empty);
+  it('returns the original array if empty and not adding anything', () => {
+    const array: number[] = [];
+    expect(splice(array, 1, 1)).toBe(array);
   });
   it('returns the empty singleton array if removed everything', () => {
     expect(splice([1, 2, 3], 0, 3)).toBe(empty);

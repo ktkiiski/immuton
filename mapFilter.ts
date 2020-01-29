@@ -13,22 +13,28 @@ import empty from './empty';
  */
 function mapFilter<T, U>(array: T[], fn: (value: T, index: number) => U | undefined | void): U[] {
   let altered = false;
-  const result: U[] = [];
+  let result: U[] | undefined;
   array.forEach((value, index) => {
     const transformed = fn(value, index);
     if (typeof transformed === 'undefined') {
       altered = true;
     } else {
-      result.push(transformed);
+      if (result == null) {
+        // First included item
+        result = [transformed];
+      } else {
+        // Latter included item
+        result.push(transformed);
+      }
       if (!Object.is(transformed, value)) {
         altered = true;
       }
     }
   });
-  if (!result.length) {
-    return empty;
+  if (!altered) {
+    return array as unknown[] as U[];
   }
-  return altered ? result : (array as unknown[] as U[]);
+  return result || empty;
 }
 
 export default mapFilter;

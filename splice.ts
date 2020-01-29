@@ -12,7 +12,7 @@ function splice<T>(array: T[], start: number, deleteCount: number): T[];
 function splice<T>(array: T[], start: number, deleteCount: number, ...items: T[]): T[];
 function splice<T>(array: T[], start: number, deleteCount: number, ...items: T[]): T[] {
   if (!array.length && !items.length) {
-    return empty;
+    return array;
   }
   if ((!deleteCount || !array.length) && !items.length) {
     return array;

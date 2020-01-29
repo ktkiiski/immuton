@@ -19,10 +19,10 @@ function filter<T>(array: T[], fn: (value: T, index: number, array: T[]) => bool
     }
     return matches;
   });
-  if (!result.length) {
-    return empty;
+  if (!altered) {
+    return array;
   }
-  return altered ? result : array;
+  return result.length ? result : empty;
 }
 
 export default filter;

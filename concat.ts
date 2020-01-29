@@ -1,4 +1,4 @@
-import flatten from './flatten';
+import empty from './empty';
 
 /**
  * Concatenates the arrays given as the parameters.
@@ -6,5 +6,19 @@ import flatten from './flatten';
  * @param arrays arrays to concatenate
  */
 export default function concat<T>(...arrays: T[][]): T[] {
-  return flatten(arrays);
+  const { length } = arrays;
+  let result: T[] | undefined;
+  for (let i = 0; i < length; i += 1) {
+    const array = arrays[i];
+    if (array.length) {
+      if (result != null) {
+        // More than one non-empty array.
+        // Fall back to native flatten.
+        return (empty as T[]).concat(...arrays);
+      }
+      // First non-empty array
+      result = array;
+    }
+  }
+  return result || arrays[0] || empty;
 }

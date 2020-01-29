@@ -1,4 +1,5 @@
 import flatten from '../flatten';
+import empty from '../empty';
 
 describe('flatten()', () => {
   it('flattens the given array', () => {
@@ -23,5 +24,8 @@ describe('flatten()', () => {
   it('returns the original array if empty', () => {
     const array: number[][] = [];
     expect(flatten(array)).toBe(array);
+  });
+  it('returns the empty singleton array if all nested arrays are empty', () => {
+    expect(flatten([[], [], []])).toBe(empty);
   });
 });

@@ -19,10 +19,15 @@ describe('concat()', () => {
     expect(concat(nested)).toBe(nested);
     expect(concat([], [], nested, [], [])).toBe(nested);
   });
-  it('returns the empty singleton array if empty', () => {
-    expect(concat([])).toBe(empty);
+  it('returns the reference to the only empty array', () => {
+    const array: number[] = [];
+    expect(concat(array)).toBe(array);
   });
-  it('returns empty array if no parameters', () => {
-    expect(concat()).toEqual([]);
+  it('returns the reference to the first empty array', () => {
+    const array: number[] = [];
+    expect(concat(array, [], [])).toBe(array);
+  });
+  it('returns the empty array singleton if no parameters', () => {
+    expect(concat()).toEqual(empty);
   });
 });
