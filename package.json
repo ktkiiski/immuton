@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "description": "Functions for manipulating JavaScript objects and arrays with immutability principles",
   "main": "index.js",
+  "files": [
+    "*.js",
+    "*.d.ts"
+  ],
   "scripts": {
     "clean": "find . -type d \\( -path ./node_modules \\) -prune -o -name '.*.js' -prune -o -name '*.config.js' -prune -o -type f \\( -name '*.js' -o -name '*.js.map' -o -name '*.d.ts' \\) -exec rm {} \\;",
     "compile": "tsc",

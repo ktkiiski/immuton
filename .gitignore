@@ -3,7 +3,5 @@
 # Ignore compiled JavaScript and TypeScript definition files...
 *.d.ts
 *.js
-# ...but not the ESLint configuration
-!.eslintrc.js
-# ...or Jest configuration
-!*.config.js
+# Ignore packaged files
+*.tgz
