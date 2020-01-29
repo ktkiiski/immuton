@@ -1,5 +1,6 @@
 import extend from './extend';
 import filter from './filter';
+import flatten from './flatten';
 import hasOwnProperty from './hasOwnProperty';
 import isEqual from './isEqual';
 import map from './map';
@@ -10,6 +11,7 @@ import splice from './splice';
 export {
   extend,
   filter,
+  flatten,
   hasOwnProperty,
   isEqual,
   map,
