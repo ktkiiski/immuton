@@ -1,4 +1,5 @@
 import append from './append';
+import build from './build';
 import concat from './concat';
 import empty from './empty';
 import extend from './extend';
@@ -14,6 +15,7 @@ import transform from './transform';
 
 export {
   append,
+  build,
   concat,
   empty,
   extend,
