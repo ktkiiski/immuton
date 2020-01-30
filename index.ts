@@ -9,6 +9,7 @@ import map from './map';
 import mapFilter from './mapFilter';
 import set from './set';
 import splice from './splice';
+import transform from './transform';
 
 export {
   concat,
@@ -22,4 +23,5 @@ export {
   mapFilter,
   set,
   splice,
+  transform,
 };
