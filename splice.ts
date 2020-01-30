@@ -4,7 +4,7 @@ import empty from './empty';
  * Changes an array by removing or replacing existing elements and/or adding new elements.
  * Unlike JavaScript's native `splice` method, this returns a new copy and does not mutate
  * the original array. If the splice operation would result in no changes, then the reference
- * to the original array is removed.
+ * to the original array is returned.
  * @param array array to splice
  * @param fn function used to transform each item
  */

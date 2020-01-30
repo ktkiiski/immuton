@@ -1,3 +1,4 @@
+import append from './append';
 import concat from './concat';
 import empty from './empty';
 import extend from './extend';
@@ -12,6 +13,7 @@ import splice from './splice';
 import transform from './transform';
 
 export {
+  append,
   concat,
   empty,
   extend,
