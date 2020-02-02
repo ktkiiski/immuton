@@ -11,6 +11,7 @@ import isEqual from './isEqual';
 import map from './map';
 import mapFilter from './mapFilter';
 import mapObject from './mapObject';
+import pick from './pick';
 import set from './set';
 import splice from './splice';
 import transform from './transform';
@@ -29,6 +30,7 @@ export {
   map,
   mapFilter,
   mapObject,
+  pick,
   set,
   splice,
   transform,
