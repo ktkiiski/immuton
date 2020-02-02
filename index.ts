@@ -8,7 +8,13 @@ import filter from './filter';
 import flatten from './flatten';
 import group from './group';
 import hasOwnProperty from './hasOwnProperty';
+import isDefined from './isDefined';
 import isEqual from './isEqual';
+import isNotNull from './isNotNull';
+import isNotNully from './isNotNully';
+import isNull from './isNull';
+import isNully from './isNully';
+import isUndefined from './isUndefined';
 import map from './map';
 import mapFilter from './mapFilter';
 import mapObject from './mapObject';
@@ -33,7 +39,13 @@ export {
   flatten,
   group,
   hasOwnProperty,
+  isDefined,
   isEqual,
+  isNotNull,
+  isNotNully,
+  isNull,
+  isNully,
+  isUndefined,
   map,
   mapFilter,
   mapObject,
