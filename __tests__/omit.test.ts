@@ -4,14 +4,13 @@ import propertyless from '../propertyless';
 describe('omit()', () => {
   it('omits each given property of the object', () => {
     const obj = { a: '1', b: '2', c: '3' };
-    expect(omit(obj, ['a'])).toEqual({ b: '2', c: '3' });
-    expect(omit(obj, ['a', 'b'])).toEqual({ c: '3' });
+    expect(omit(obj, ['a'])).toStrictEqual({ b: '2', c: '3' });
+    expect(omit(obj, ['a', 'b'])).toStrictEqual({ c: '3' });
   });
   it('ignores non-existing properties', () => {
     const obj: Record<string, string> = { a: '1', b: '2', c: '3' };
     const result = omit(obj, ['c', 'd', 'e']);
-    expect(result).toEqual({ a: '1', b: '2' });
-    expect(Object.keys(result)).toEqual(['a', 'b']);
+    expect(result).toStrictEqual({ a: '1', b: '2' });
   });
   it('returns another object instance', () => {
     const obj = { a: '1', b: '2', c: '3' };
@@ -21,7 +20,7 @@ describe('omit()', () => {
   it('does not mutate the original object', () => {
     const obj = { a: '1', b: '2', c: '3' };
     omit(obj, ['a', 'b']);
-    expect(obj).toEqual({ a: '1', b: '2', c: '3' });
+    expect(obj).toStrictEqual({ a: '1', b: '2', c: '3' });
   });
   it('returns the original object instance if object has no omitted properties', () => {
     const obj: Record<string, string> = { a: '1', b: '2', c: '3' };

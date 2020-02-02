@@ -4,13 +4,12 @@ import propertyless from '../propertyless';
 describe('pick()', () => {
   it('picks each given property of the object', () => {
     const obj = { a: '1', b: '2', c: '3' };
-    expect(pick(obj, ['a', 'b'])).toEqual({ a: '1', b: '2' });
+    expect(pick(obj, ['a', 'b'])).toStrictEqual({ a: '1', b: '2' });
   });
   it('ignores non-existing properties', () => {
     const obj: Record<string, string> = { a: '1', b: '2', c: '3' };
     const result = pick(obj, ['a', 'b', 'd']);
-    expect(result).toEqual({ a: '1', b: '2' });
-    expect(Object.keys(result)).toEqual(['a', 'b']);
+    expect(result).toStrictEqual({ a: '1', b: '2' });
   });
   it('returns another object instance with picked properties', () => {
     const obj = { a: '1', b: '2', c: '3' };
@@ -19,7 +18,7 @@ describe('pick()', () => {
   it('does not mutate the original object', () => {
     const obj = { a: '1', b: '2', c: '3' };
     pick(obj, ['a', 'b']);
-    expect(obj).toEqual({ a: '1', b: '2', c: '3' });
+    expect(obj).toStrictEqual({ a: '1', b: '2', c: '3' });
   });
   it('returns the original object instance if picking exactly the same properties', () => {
     const obj = { a: '1', b: '2', c: '3' };
