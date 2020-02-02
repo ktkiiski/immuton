@@ -1,9 +1,7 @@
 import group from '../group';
+import propertyless from '../propertyless';
 
 describe('group()', () => {
-  it('returns empty object when given an empty array', () => {
-    expect(group([], () => 'foo')).toEqual({});
-  });
   it('groups values with different selector results to different keys', () => {
     expect(
       group([
@@ -31,5 +29,8 @@ describe('group()', () => {
         { id: 3, name: 'John' },
       ],
     });
+  });
+  it('returns empty object singleton when given an empty array', () => {
+    expect(group([], () => 'foo')).toBe(propertyless);
   });
 });

@@ -1,4 +1,5 @@
 import build from '../build';
+import propertyless from '../propertyless';
 
 describe('build()', () => {
   it('builds the object from the key-value pairs', () => {
@@ -14,7 +15,7 @@ describe('build()', () => {
     build(['a', 'b', 'c'], (value) => [value, value.toUpperCase()]);
     expect(array).toEqual(['a', 'b', 'c']);
   });
-  it('returns empty object if result is empty', () => {
-    expect(build([], (value) => [value, value])).toEqual({});
+  it('returns empty object singleton if result is empty', () => {
+    expect(build([], (value) => [value, value])).toBe(propertyless);
   });
 });

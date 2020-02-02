@@ -12,6 +12,7 @@ import map from './map';
 import mapFilter from './mapFilter';
 import mapObject from './mapObject';
 import pick from './pick';
+import propertyless from './propertyless';
 import set from './set';
 import splice from './splice';
 import transform from './transform';
@@ -31,6 +32,7 @@ export {
   mapFilter,
   mapObject,
   pick,
+  propertyless,
   set,
   splice,
   transform,

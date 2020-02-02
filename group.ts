@@ -1,12 +1,17 @@
+import propertyless from './propertyless';
+
 export default function group<K extends keyof any, T>(
   values: T[], selector: (item: T, index: number) => K,
 ): {[P in K]: T[]} {
-  const results: any = {};
+  let result: any;
   values.forEach((value, index) => {
     const key = selector(value, index);
+    if (!result) {
+      result = {};
+    }
     // eslint-disable-next-line no-multi-assign
-    const acc = results[key] = results[key] || [] as T[];
+    const acc = result[key] = result[key] || [] as T[];
     acc.push(value);
   });
-  return results;
+  return result || propertyless;
 }

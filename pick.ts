@@ -1,3 +1,6 @@
+import propertyless from './propertyless';
+import hasOwnProperty from './hasOwnProperty';
+
 /* eslint-disable no-restricted-syntax */
 /**
  * Returns a copy of the object that only contains the given property names, if present.
@@ -9,11 +12,14 @@ export default function pick<T, K extends keyof T>(obj: T, props: K[]): Pick<T, 
   for (const key in obj) {
     if ((props as Array<keyof T>).indexOf(key) < 0) {
       // At least one property will be omitted
-      const output = {} as Pick<T, K>;
+      let output: Pick<T, K> | undefined;
       props.forEach((propName) => {
-        output[propName] = obj[propName];
+        if (hasOwnProperty(obj, propName)) {
+          output = output || {} as Pick<T, K>;
+          output[propName] = obj[propName];
+        }
       });
-      return output;
+      return output || propertyless as Pick<T, K>;
     }
   }
   return obj as Pick<T, K>;
