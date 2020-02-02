@@ -10,6 +10,7 @@ import hasOwnProperty from './hasOwnProperty';
 import isEqual from './isEqual';
 import map from './map';
 import mapFilter from './mapFilter';
+import mapObject from './mapObject';
 import set from './set';
 import splice from './splice';
 import transform from './transform';
@@ -27,6 +28,7 @@ export {
   isEqual,
   map,
   mapFilter,
+  mapObject,
   set,
   splice,
   transform,
