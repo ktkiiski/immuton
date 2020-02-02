@@ -9,13 +9,13 @@ import hasOwnProperty from './hasOwnProperty';
  * @param iterator function that returns new value for each key
  */
 function transform<T, R>(
-  obj: T, iterator: (value: T[keyof T], key: keyof T) => R,
+  obj: T, iterator: (key: string & keyof T, value: T[string & keyof T]) => R,
 ): {[P in keyof T]: R} {
   let result: {[P in keyof T]: R} | undefined;
   for (const key in obj) {
-    if (hasOwnProperty(obj, key)) {
+    if (hasOwnProperty(obj, key) && typeof key === 'string') {
       const value = obj[key];
-      const newValue = iterator(value, key);
+      const newValue = iterator(key, value);
       if (!Object.is(value, newValue)) {
         if (result == null) {
           result = {} as {[P in keyof T]: R};
