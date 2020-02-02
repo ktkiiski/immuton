@@ -5,6 +5,7 @@ import empty from './empty';
 import extend from './extend';
 import filter from './filter';
 import flatten from './flatten';
+import group from './group';
 import hasOwnProperty from './hasOwnProperty';
 import isEqual from './isEqual';
 import map from './map';
@@ -21,6 +22,7 @@ export {
   extend,
   filter,
   flatten,
+  group,
   hasOwnProperty,
   isEqual,
   map,
