@@ -10,13 +10,13 @@ import empty from './empty';
  * @param iterator Function that returns new value for each key
  */
 export default function mapObject<T, R>(
-  obj: T, iterator: (key: string & keyof T, value: T[string & keyof T]) => R,
+  obj: T, iterator: (value: T[string & keyof T], key: string & keyof T) => R,
 ): R[] {
   let result: R[] | undefined;
   for (const key in obj) {
     if (hasOwnProperty(obj, key) && typeof key === 'string') {
       const value = obj[key];
-      const item = iterator(key, value);
+      const item = iterator(value, key);
       if (result) {
         result.push(item);
       } else {

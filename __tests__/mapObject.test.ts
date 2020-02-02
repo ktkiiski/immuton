@@ -4,7 +4,7 @@ import empty from '../empty';
 describe('mapObject()', () => {
   it('transforms each key-value pair in the object', () => {
     const obj = { foo: 'FOO', bar: 'BAR' };
-    expect(mapObject(obj, (key, value) => [key, value])).toEqual([
+    expect(mapObject(obj, (value, key) => [key, value])).toEqual([
       ['foo', 'FOO'], ['bar', 'BAR'],
     ]);
   });
