@@ -13,6 +13,16 @@ describe('isEqual()', () => {
   it('returns false for unequal integers', () => {
     expect(isEqual(123, -123)).toBe(false);
   });
+  it('returns true for NaN values', () => {
+    expect(isEqual(NaN, NaN)).toBe(true);
+  });
+  it('returns false for positive and negative zero', () => {
+    expect(isEqual(-0, 0)).toBe(false);
+  });
+  it('returns true for infinities', () => {
+    expect(isEqual(Infinity, Infinity)).toBe(true);
+    expect(isEqual(-Infinity, -Infinity)).toBe(true);
+  });
   it('returns true for objects with equal attributes', () => {
     expect(isEqual({ name: 'John', age: 1 }, { name: 'John', age: 1 })).toBe(true);
   });

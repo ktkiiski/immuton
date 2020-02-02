@@ -1,16 +1,15 @@
+/* eslint-disable no-param-reassign */
 import hasOwnProperty from './hasOwnProperty';
 
 /* eslint-disable no-plusplus */
 function isDeepEqual(
-  a: any, b: any, depth = Number.POSITIVE_INFINITY, stack?: Array<[any, any]>,
+  a: any, b: any, depth = Number.POSITIVE_INFINITY, stack1?: any[], stack2?: any[],
 ): boolean {
-  if (a === b) {
+  if (Object.is(a, b)) {
     return true;
   }
   if (!a || !b || typeof a !== 'object' || typeof b !== 'object') {
-    // If both NaN, then return true, otherwise not equal
-    // eslint-disable-next-line no-self-compare
-    return a !== a && b !== b;
+    return false;
   }
   // Compare dates
   const dateA = a instanceof Date;
@@ -35,8 +34,8 @@ function isDeepEqual(
     return false;
   }
   // Check if we are already comparing these objects in the stack
-  if (stack) {
-    if (stack.some(([x, y]) => x === a && y === b)) {
+  if (stack1 && stack2) {
+    if (stack1.some((x, i) => x === a && (stack2 as any[])[i] === b)) {
       return true;
     }
   }
@@ -49,7 +48,7 @@ function isDeepEqual(
       return false;
     }
     for (let i = length; i-- !== 0;) {
-      if (!isDeepEqual(a[i], b[i], depth - 1, stack)) {
+      if (!isDeepEqual(a[i], b[i], depth - 1, stack1)) {
         return false;
       }
     }
@@ -72,13 +71,15 @@ function isDeepEqual(
   }
   for (let i = keyCount; i-- !== 0;) {
     const key = keyList[i];
-    // eslint-disable-next-line no-param-reassign
-    stack = stack || [];
-    stack.push([a, b]);
-    if (!isDeepEqual(a[key], b[key], depth - 1, stack)) {
+    stack1 = stack1 || [];
+    stack2 = stack2 || [];
+    stack1.push(a);
+    stack2.push(b);
+    if (!isDeepEqual(a[key], b[key], depth - 1, stack1, stack2)) {
       return false;
     }
-    stack.pop();
+    stack1.pop();
+    stack2.pop();
   }
   return true;
 }
