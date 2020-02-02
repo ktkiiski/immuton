@@ -24,6 +24,10 @@ describe('mapFilter()', () => {
     const array = [1, 2, 3];
     expect(mapFilter(array, (value) => value * 1)).toBe(array);
   });
+  it('returns the original array instance if resulting in equal dates', () => {
+    const array = [new Date(1), new Date(2), new Date(3)];
+    expect(mapFilter(array, (d) => new Date(d.getTime()))).toBe(array);
+  });
   it('returns the original array if empty', () => {
     const array: number[] = [];
     expect(mapFilter(array, (value) => value * 2)).toBe(array);

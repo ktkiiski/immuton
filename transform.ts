@@ -1,5 +1,6 @@
 /* eslint-disable no-restricted-syntax */
 import hasOwnProperty from './hasOwnProperty';
+import isEqual from './isEqual';
 
 /**
  * Maps each value for each property of an object to a new value,
@@ -16,7 +17,7 @@ function transform<T, R>(
     if (hasOwnProperty(obj, key) && typeof key === 'string') {
       const value = obj[key];
       const newValue = iterator(key, value);
-      if (!Object.is(value, newValue)) {
+      if (!isEqual(value, newValue, 0)) {
         if (result == null) {
           result = {} as {[P in keyof T]: R};
         }

@@ -1,4 +1,5 @@
 import empty from './empty';
+import isEqual from './isEqual';
 
 /**
  * Transforms every value in the array using the given function
@@ -13,7 +14,7 @@ function map<T, U>(array: T[], fn: (value: T, index: number, array: T[]) => U): 
   let altered = false;
   const result = array.map((value, index, arr) => {
     const transformed = fn(value, index, arr);
-    if (!Object.is(transformed, value)) {
+    if (!isEqual(transformed, value, 0)) {
       altered = true;
     }
     return transformed;

@@ -1,4 +1,5 @@
 import empty from './empty';
+import isEqual from './isEqual';
 
 /**
  * Transforms every value in the array using the given function and returns an array
@@ -26,7 +27,7 @@ function mapFilter<T, U>(array: T[], fn: (value: T, index: number) => U | undefi
         // Latter included item
         result.push(transformed);
       }
-      if (!Object.is(transformed, value)) {
+      if (!isEqual(transformed, value, 0)) {
         altered = true;
       }
     }

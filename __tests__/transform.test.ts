@@ -20,6 +20,10 @@ describe('transform()', () => {
     const obj = { a: '1', b: '2', c: '3' };
     expect(transform(obj, (key, value) => value)).toBe(obj);
   });
+  it('returns the original object instance if resulting in equal Date values', () => {
+    const obj = { a: new Date(1), b: new Date(2) };
+    expect(transform(obj, (key, value) => new Date(value.getTime()))).toBe(obj);
+  });
   it('returns the original object if empty', () => {
     const obj = {};
     expect(transform(obj, (key, value) => key + value)).toBe(obj);
