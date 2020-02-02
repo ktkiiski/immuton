@@ -15,9 +15,12 @@ import mapObject from './mapObject';
 import omit from './omit';
 import pick from './pick';
 import propertyless from './propertyless';
+import select from './select';
 import set from './set';
 import splice from './splice';
 import transform from './transform';
+
+export * from './types';
 
 export {
   append,
@@ -37,6 +40,7 @@ export {
   omit,
   pick,
   propertyless,
+  select,
   set,
   splice,
   transform,
