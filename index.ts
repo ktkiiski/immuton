@@ -5,6 +5,7 @@ import diff from './diff';
 import empty from './empty';
 import extend from './extend';
 import filter from './filter';
+import flatMap from './flatMap';
 import flatten from './flatten';
 import group from './group';
 import hasOwnProperty from './hasOwnProperty';
@@ -38,6 +39,7 @@ export {
   empty,
   extend,
   filter,
+  flatMap,
   flatten,
   group,
   hasOwnProperty,
