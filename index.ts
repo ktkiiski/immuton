@@ -8,6 +8,7 @@ import filter from './filter';
 import flatten from './flatten';
 import group from './group';
 import hasOwnProperty from './hasOwnProperty';
+import hasProperties from './hasProperties';
 import isDefined from './isDefined';
 import isEqual from './isEqual';
 import isNotNull from './isNotNull';
@@ -39,6 +40,7 @@ export {
   flatten,
   group,
   hasOwnProperty,
+  hasProperties,
   isDefined,
   isEqual,
   isNotNull,
