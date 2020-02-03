@@ -6,7 +6,9 @@ import empty from './empty';
  * the original array. If the splice operation would result in no changes, then the reference
  * to the original array is returned.
  * @param array array to splice
- * @param fn function used to transform each item
+ * @param start starting index
+ * @param deleteCount number of items to remove at the index
+ * @param items items to add at the index
  */
 function splice<T>(array: T[], start: number, deleteCount: number): T[];
 function splice<T>(array: T[], start: number, deleteCount: number, ...items: T[]): T[];
