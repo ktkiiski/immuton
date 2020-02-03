@@ -26,6 +26,7 @@ import propertyless from './propertyless';
 import select from './select';
 import set from './set';
 import slice from './slice';
+import sort from './sort';
 import splice from './splice';
 import transform from './transform';
 
@@ -60,6 +61,7 @@ export {
   select,
   set,
   slice,
+  sort,
   splice,
   transform,
 };
