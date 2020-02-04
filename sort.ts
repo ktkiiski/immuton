@@ -1,5 +1,6 @@
 import compare from './compare';
 import isEqual from './isEqual';
+import empty from './empty';
 
 interface SortableItem {
   value: any;
@@ -50,6 +51,10 @@ export default function sort<T, V>(
     }
     bufferIndex += 1;
   });
+  if (values.length && !buffer.length) {
+    // Filtered out everything
+    return empty;
+  }
   const factor = direction === 'desc' ? -1 : 1;
   const comparator = (a: SortableItem, b: SortableItem) => (
     compare(a.sorter, b.sorter, direction) || (a.index - b.index) * factor

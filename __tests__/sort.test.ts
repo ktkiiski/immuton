@@ -1,4 +1,5 @@
 import sort from '../sort';
+import empty from '../empty';
 
 describe('sort()', () => {
   it('sorts values in ascending order by default', () => {
@@ -12,6 +13,20 @@ describe('sort()', () => {
   it('sorts values in descending order', () => {
     expect(sort(['1', '10', '0', '20'], (val) => parseFloat(val), 'desc')).toEqual(['20', '10', '1', '0']);
     expect(sort(['10', '1', '20', '0'], (val) => parseFloat(val), 'desc')).toEqual(['20', '10', '1', '0']);
+  });
+  it('filters values after the since parameter', () => {
+    expect(sort(['1', '10', '0', '20'], (val) => parseFloat(val), 'asc', -1)).toEqual(['0', '1', '10', '20']);
+    expect(sort(['1', '10', '0', '20'], (val) => parseFloat(val), 'asc', 0)).toEqual(['1', '10', '20']);
+    expect(sort(['1', '10', '0', '20'], (val) => parseFloat(val), 'asc', 1)).toEqual(['10', '20']);
+    expect(sort(['1', '10', '0', '20'], (val) => parseFloat(val), 'asc', 10)).toEqual(['20']);
+    expect(sort(['1', '10', '0', '20'], (val) => parseFloat(val), 'asc', 20)).toEqual([]);
+  });
+  it('filters values before the since parameter', () => {
+    expect(sort(['1', '10', '0', '20'], (val) => parseFloat(val), 'desc', 21)).toEqual(['20', '10', '1', '0']);
+    expect(sort(['1', '10', '0', '20'], (val) => parseFloat(val), 'desc', 20)).toEqual(['10', '1', '0']);
+    expect(sort(['1', '10', '0', '20'], (val) => parseFloat(val), 'desc', 10)).toEqual(['1', '0']);
+    expect(sort(['1', '10', '0', '20'], (val) => parseFloat(val), 'desc', 1)).toEqual(['0']);
+    expect(sort(['1', '10', '0', '20'], (val) => parseFloat(val), 'desc', 0)).toEqual([]);
   });
   it('preserves original order for equal items when sorting ascending', () => {
     const a1 = { x: 'a' };
@@ -37,10 +52,20 @@ describe('sort()', () => {
   it('returns the original array instance if already in ascending order', () => {
     const array = ['0', '1', '10', '20'];
     expect(sort(array, (val) => parseFloat(val), 'asc')).toBe(array);
+    expect(sort(array, (val) => parseFloat(val), 'asc', -1)).toBe(array);
   });
   it('returns the original array instance if already in descending order', () => {
     const array = ['20', '10', '1', '0'];
     expect(sort(array, (val) => parseFloat(val), 'desc')).toBe(array);
+    expect(sort(array, (val) => parseFloat(val), 'desc', 21)).toBe(array);
+  });
+  it('returns another instance with since even if already in ascending order', () => {
+    const array = ['0', '1', '10', '20'];
+    expect(sort(array, (val) => parseFloat(val), 'asc', 0)).not.toBe(array);
+  });
+  it('returns another instance with since even if already in descending order', () => {
+    const array = ['20', '10', '1', '0'];
+    expect(sort(array, (val) => parseFloat(val), 'desc', 20)).not.toBe(array);
   });
   it('returns the original array instance if already in ascending order with equal items', () => {
     const a1 = { x: 'a' };
@@ -67,5 +92,9 @@ describe('sort()', () => {
     expect(sort(array, (value) => value)).toBe(array);
     expect(sort(array, (value) => value, 'asc')).toBe(array);
     expect(sort(array, (value) => value, 'desc')).toBe(array);
+  });
+  it('returns the empty singleton array if filtered out everything', () => {
+    expect(sort(['1', '10', '0', '20'], (val) => parseFloat(val), 'asc', 20)).toBe(empty);
+    expect(sort(['1', '10', '0', '20'], (val) => parseFloat(val), 'desc', 0)).toBe(empty);
   });
 });
