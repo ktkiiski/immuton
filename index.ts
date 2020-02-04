@@ -21,6 +21,7 @@ import map from './map';
 import mapFilter from './mapFilter';
 import mapObject from './mapObject';
 import omit from './omit';
+import order from './order';
 import pick from './pick';
 import propertyless from './propertyless';
 import select from './select';
@@ -56,6 +57,7 @@ export {
   mapFilter,
   mapObject,
   omit,
+  order,
   pick,
   propertyless,
   select,

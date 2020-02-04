@@ -3,8 +3,8 @@ import empty from '../empty';
 
 describe('sort()', () => {
   it('sorts values in ascending order by default', () => {
-    expect(sort(['1', '10', '0', '20'], (val) => parseFloat(val), 'asc')).toEqual(['0', '1', '10', '20']);
-    expect(sort(['10', '1', '20', '0'], (val) => parseFloat(val), 'asc')).toEqual(['0', '1', '10', '20']);
+    expect(sort(['1', '10', '0', '20'], (val) => parseFloat(val))).toEqual(['0', '1', '10', '20']);
+    expect(sort(['10', '1', '20', '0'], (val) => parseFloat(val))).toEqual(['0', '1', '10', '20']);
   });
   it('sorts values in ascending order', () => {
     expect(sort(['1', '10', '0', '20'], (val) => parseFloat(val), 'asc')).toEqual(['0', '1', '10', '20']);
