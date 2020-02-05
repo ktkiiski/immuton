@@ -5,6 +5,7 @@ import diff from './diff';
 import empty from './empty';
 import extend from './extend';
 import filter from './filter';
+import findOrderedIndex from './findOrderedIndex';
 import flatMap from './flatMap';
 import flatten from './flatten';
 import group from './group';
@@ -41,6 +42,7 @@ export {
   empty,
   extend,
   filter,
+  findOrderedIndex,
   flatMap,
   flatten,
   group,
