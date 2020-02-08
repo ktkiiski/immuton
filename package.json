@@ -1,7 +1,7 @@
 {
   "name": "immuton",
   "version": "0.0.0",
-  "description": "Functions for manipulating JavaScript objects and arrays with immutability principles",
+  "description": "Immuton is a collection of utility functions for working with immutable values, helping you to create high-performing applications with smaller memory footprint",
   "main": "index.js",
   "files": [
     "*.js",
