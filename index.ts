@@ -12,6 +12,7 @@ import flatten from './flatten';
 import group from './group';
 import hasOwnProperty from './hasOwnProperty';
 import hasProperties from './hasProperties';
+import includes from './includes';
 import isDefined from './isDefined';
 import isEqual from './isEqual';
 import isNotNull from './isNotNull';
@@ -51,6 +52,7 @@ export {
   group,
   hasOwnProperty,
   hasProperties,
+  includes,
   isDefined,
   isEqual,
   isNotNull,

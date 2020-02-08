@@ -1,4 +1,4 @@
-import isEqual from './isEqual';
+import includes from './includes';
 import empty from './empty';
 
 /**
@@ -20,7 +20,7 @@ export default function union<T>(arrays: T[][], depth?: number): T[] {
     array.forEach((value) => {
       if (!result) {
         result = [value];
-      } else if (!result.some((x) => isEqual(x, value, depth))) {
+      } else if (!includes(result, value, depth)) {
         result.push(value);
       } else {
         foundDuplicates = true;
