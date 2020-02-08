@@ -1,7 +1,6 @@
 import append from './append';
 import build from './build';
 import concat from './concat';
-import diff from './diff';
 import difference from './difference';
 import differenceBy from './differenceBy';
 import empty from './empty';
@@ -25,6 +24,7 @@ import isUndefined from './isUndefined';
 import map from './map';
 import mapFilter from './mapFilter';
 import mapObject from './mapObject';
+import objectDifference from './objectDifference';
 import omit from './omit';
 import order from './order';
 import pick from './pick';
@@ -44,7 +44,6 @@ export {
   append,
   build,
   concat,
-  diff,
   difference,
   differenceBy,
   empty,
@@ -68,6 +67,7 @@ export {
   map,
   mapFilter,
   mapObject,
+  objectDifference,
   omit,
   order,
   pick,

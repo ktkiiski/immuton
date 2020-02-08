@@ -12,13 +12,13 @@ import propertyless from './propertyless';
  * @param newObj the new state of an object
  * @param depth equality check depth
  */
-function diff<T>(
+function objectDifference<T>(
   oldObj: {[key: string]: T},
   newObj: {[key: string]: T},
   depth?: number,
 ): {[key: string]: T};
-function diff<T>(oldObj: T, newObj: T, depth?: number): Partial<T>;
-function diff<T>(oldObj: T, newObj: T, depth?: number): Partial<T> {
+function objectDifference<T>(oldObj: T, newObj: T, depth?: number): Partial<T>;
+function objectDifference<T>(oldObj: T, newObj: T, depth?: number): Partial<T> {
   let result: any;
   let allDifferent = true;
   for (const key in newObj) {
@@ -38,4 +38,4 @@ function diff<T>(oldObj: T, newObj: T, depth?: number): Partial<T> {
   return allDifferent ? newObj : result;
 }
 
-export default diff;
+export default objectDifference;
