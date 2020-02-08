@@ -19,6 +19,7 @@
     "url": "git+https://github.com/ktkiiski/immuton.git"
   },
   "keywords": [
+    "immutability",
     "immutable"
   ],
   "author": "Kimmo Kiiski",
