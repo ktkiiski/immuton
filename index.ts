@@ -29,6 +29,7 @@ import omit from './omit';
 import order from './order';
 import pick from './pick';
 import propertyless from './propertyless';
+import reject from './reject';
 import select from './select';
 import set from './set';
 import slice from './slice';
@@ -71,6 +72,7 @@ export {
   order,
   pick,
   propertyless,
+  reject,
   select,
   set,
   slice,
