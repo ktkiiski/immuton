@@ -32,6 +32,7 @@ import slice from './slice';
 import sort from './sort';
 import splice from './splice';
 import transform from './transform';
+import union from './union';
 
 export * from './types';
 
@@ -70,4 +71,5 @@ export {
   sort,
   splice,
   transform,
+  union,
 };
