@@ -2,6 +2,7 @@ import append from './append';
 import build from './build';
 import concat from './concat';
 import diff from './diff';
+import difference from './difference';
 import empty from './empty';
 import extend from './extend';
 import filter from './filter';
@@ -42,6 +43,7 @@ export {
   build,
   concat,
   diff,
+  difference,
   empty,
   extend,
   filter,
