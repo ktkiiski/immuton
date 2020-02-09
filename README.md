@@ -2,7 +2,7 @@
 
 Working with _[immutable](https://en.wikipedia.org/wiki/Immutable_object) values_ simplifies your application development and state management, making it easier to detect changes in your application state.
 
-**Immuton** is a _collection of utility functions_ for working with _immutable values_, helping you to create _high-performing_ applications with _smaller memory footprint_.
+**Immuton** is a _collection of utility functions_ for working with _immutable values_, improving the _change detection_ and _memory footprint_ in your app.
 
 Immuton has zero production dependencies, and you may only import the functions you need in your app, allowing your bundler (e.g. [Webpack](https://webpack.js.org/)) to exclude any unused files from this library, resulting in smaller bundle sizes.
 
@@ -22,7 +22,7 @@ Immuton has the three main motivations:
 
 Reactive frameworks and libaries are popular in modern web development, such as [React](https://reactjs.org/), [Redux](https://redux.js.org/), or [RxJS](https://rxjs-dev.firebaseapp.com/). These frameworks typically rely on the immutability principle. They also rely heavily on change detection. For example, in React, re-rendering or side-effects occur only when values actually change when using [`React.memo`](https://reactjs.org/docs/react-api.html#reactmemo), [contexts](https://reactjs.org/docs/context.html), or hooks such as [`useEffect`](https://reactjs.org/docs/hooks-reference.html#useeffect), [`useCallback`](https://reactjs.org/docs/hooks-reference.html#usecallback) or [`useMemo`](https://reactjs.org/docs/hooks-reference.html#usememo).
 
-For best performance and least ambiguity, the "change" is typically determines as a strict inequality, meaning that objects and arrays are not deep-checked. This means that updating your state to a new but _equivalent_ object or array will be considered a change, even though all of the properties or items would be equal.
+For best performance and least ambiguity, the "change" is typically determined as a strict inequality, meaning that objects and arrays are not deep-checked. This means that updating your state to a new but _equivalent_ object or array will be considered a change, even though all of the properties or items would be equal.
 
 Every function in Immuton that returns an altered object or array will always check if there would be an _actual_ change to the value. In those cases, they return the original references. If you use Immuton when changing the state of your app, you can remove many unnecessary re-renderings or side-effects, leading to better overall performance.
 
