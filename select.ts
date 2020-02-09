@@ -2,11 +2,11 @@
 import hasOwnProperty from './hasOwnProperty';
 import propertyless from './propertyless';
 
-type SelectedKeys<T, Condition> = {
+export type SelectedKeys<T, Condition> = {
   [P in keyof T]: Condition extends T[P] ? P : never
 }[keyof T];
 
-type SelectedValues<T, Condition> = {
+export type SelectedValues<T, Condition> = {
   [P in SelectedKeys<T, Condition>]: Extract<T[P], Condition>
 };
 
