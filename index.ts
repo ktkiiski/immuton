@@ -3,6 +3,7 @@ import build from './build';
 import concat from './concat';
 import difference from './difference';
 import differenceBy from './differenceBy';
+import editProperty from './editProperty';
 import empty from './empty';
 import extend from './extend';
 import filter from './filter';
@@ -46,6 +47,7 @@ export {
   concat,
   difference,
   differenceBy,
+  editProperty,
   empty,
   extend,
   filter,
