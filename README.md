@@ -52,6 +52,55 @@ import map from 'immuton/map';
 const numbers = map([1, 2, 3], value => value * 2);
 ```
 
+## Available functions and helpers
+
+The following functions are available:
+
+- [`append`](./append.ts)
+- [`build`](./build.ts)
+- [`concat`](./concat.ts)
+- [`difference`](./difference.ts)
+- [`differenceBy`](./differenceBy.ts)
+- [`editProperty`](./editProperty.ts)
+- [`extend`](./extend.ts)
+- [`filter`](./filter.ts)
+- [`findLastIndex`](./findLastIndex.ts)
+- [`findOrderedIndex`](./findOrderedIndex.ts)
+- [`flatMap`](./flatMap.ts)
+- [`flatten`](./flatten.ts)
+- [`group`](./group.ts)
+- [`hasOwnProperty`](./hasOwnProperty.ts)
+- [`hasProperties`](./hasProperties.ts)
+- [`includes`](./includes.ts)
+- [`isDefined`](./isDefined.ts)
+- [`isEqual`](./isEqual.ts)
+- [`isNotNull`](./isNotNull.ts)
+- [`isNotNully`](./isNotNully.ts)
+- [`isNull`](./isNull.ts)
+- [`isNully`](./isNully.ts)
+- [`isUndefined`](./isUndefined.ts)
+- [`map`](./map.ts)
+- [`mapFilter`](./mapFilter.ts)
+- [`mapObject`](./mapObject.ts)
+- [`objectDifference`](./objectDifference.ts)
+- [`omit`](./omit.ts)
+- [`order`](./order.ts)
+- [`pick`](./pick.ts)
+- [`reject`](./reject.ts)
+- [`select`](./select.ts)
+- [`set`](./set.ts)
+- [`slice`](./slice.ts)
+- [`sort`](./sort.ts)
+- [`splice`](./splice.ts)
+- [`transform`](./transform.ts)
+- [`union`](./union.ts)
+
+The following singleton object and array instances are also available:
+
+- [`empty`](./empty.ts)
+- [`propertyless`](./propertyless.ts)
+
+
 ## What does immutability mean?
 
 "Immutability" can be defined as follows:
