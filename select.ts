@@ -22,8 +22,8 @@ function select<T, V extends T[keyof T]>(
 function select<T, K extends keyof T>(
   obj: T, fn: (val: T[keyof T], key: keyof T) => key is K
 ): Pick<T, K>;
-function select<T>(obj: T, fn: (value: T[keyof T], key: keyof T) => boolean): Partial<T>;
-function select<T>(obj: T, fn: (value: T[keyof T], key: keyof T) => boolean): Partial<T> {
+function select<T>(obj: T, fn: (value: any, key: keyof T) => boolean): Partial<T>;
+function select<T>(obj: T, fn: (value: any, key: keyof T) => boolean): Partial<T> {
   let output: any;
   let pickEverything = true;
   for (const key in obj) {
