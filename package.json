@@ -1,6 +1,6 @@
 {
   "name": "immuton",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Immuton is a collection of utility functions for working with immutable values, improving the change detection and memory footprint in your app",
   "main": "index.js",
   "files": [
