@@ -12,20 +12,22 @@ import isEqual from './isEqual';
 function transform<T, R>(
   obj: T, iterator: (value: T[string & keyof T], key: string & keyof T) => R,
 ): {[P in keyof T]: R} {
+  let isAltered = false;
   let result: {[P in keyof T]: R} | undefined;
   for (const key in obj) {
     if (hasOwnProperty(obj, key) && typeof key === 'string') {
       const value = obj[key];
       const newValue = iterator(value, key);
+      if (result == null) {
+        result = {} as {[P in keyof T]: R};
+      }
+      result[key] = newValue;
       if (!isEqual(value, newValue, 0)) {
-        if (result == null) {
-          result = {} as {[P in keyof T]: R};
-        }
-        result[key] = newValue;
+        isAltered = true;
       }
     }
   }
-  return result || obj as unknown as {[P in keyof T]: R};
+  return isAltered ? result as {[P in keyof T]: R} : obj as unknown as {[P in keyof T]: R};
 }
 
 export default transform;

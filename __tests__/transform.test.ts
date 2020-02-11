@@ -3,8 +3,23 @@ import transform from '../transform';
 describe('transform()', () => {
   it('transforms each value in the object', () => {
     const obj = { a: '1', b: '2', c: '3' };
-    expect(transform(obj, (value, key) => key + value)).toEqual({
+    expect(transform(obj, (value, key) => key + value)).toStrictEqual({
       a: 'a1', b: 'b2', c: 'c3',
+    });
+  });
+  it('transforms values partially in the object', () => {
+    const input = {
+      property1: 'value1',
+      property2: ['value2', 'value3'],
+      property3: 'value4',
+      property4: [],
+    };
+    const output = transform(input, (val) => (Array.isArray(val) ? val : [val]));
+    expect(output).toStrictEqual({
+      property1: ['value1'],
+      property2: ['value2', 'value3'],
+      property3: ['value4'],
+      property4: [],
     });
   });
   it('returns another object instance with transformed values', () => {
@@ -14,7 +29,7 @@ describe('transform()', () => {
   it('does not mutate the original object', () => {
     const obj = { a: '1', b: '2', c: '3' };
     transform(obj, (value, key) => key + value);
-    expect(obj).toEqual({ a: '1', b: '2', c: '3' });
+    expect(obj).toStrictEqual({ a: '1', b: '2', c: '3' });
   });
   it('returns the original object instance if no changes were applied', () => {
     const obj = { a: '1', b: '2', c: '3' };
