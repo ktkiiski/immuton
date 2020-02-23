@@ -16,6 +16,7 @@ import hasOwnProperty from './hasOwnProperty';
 import hasProperties from './hasProperties';
 import includes from './includes';
 import isDefined from './isDefined';
+import isEmpty from './isEmpty';
 import isEqual from './isEqual';
 import isNotNull from './isNotNull';
 import isNotNully from './isNotNully';
@@ -60,6 +61,7 @@ export {
   hasProperties,
   includes,
   isDefined,
+  isEmpty,
   isEqual,
   isNotNull,
   isNotNully,
