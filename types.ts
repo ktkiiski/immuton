@@ -1,7 +1,7 @@
 export type Optional<T, K extends keyof T> = Omit<T, K> & Partial<T>;
 export type Require<T, K extends keyof T> = Pick<T, K> & Partial<T>;
 export type Nullable<T> = { [P in keyof T]: T[P] | null };
-export type Empty = Record<never, never>;
+export type Propertyless = Record<never, never>;
 export type Key<T> = keyof T & string;
 export type Exact<T, R, E = 'Object must only have allowed properties'> = T &
   (Exclude<keyof T, keyof R> extends never ? T : E);
