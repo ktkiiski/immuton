@@ -23,6 +23,7 @@ import isNotNully from './isNotNully';
 import isNull from './isNull';
 import isNully from './isNully';
 import isUndefined from './isUndefined';
+import keys from './keys';
 import map from './map';
 import mapFilter from './mapFilter';
 import mapObject from './mapObject';
@@ -68,6 +69,7 @@ export {
   isNull,
   isNully,
   isUndefined,
+  keys,
   map,
   mapFilter,
   mapObject,
