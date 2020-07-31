@@ -1,4 +1,5 @@
 import isEmpty from '../isEmpty';
+import keys from '../keys';
 
 describe('isEmpty()', () => {
   it('returns true for an object without own properties', () => {
@@ -23,9 +24,6 @@ describe('isEmpty()', () => {
   });
   it('type-guards for an empty object', () => {
     const foo: { [key: string]: unknown } = {};
-    function keys<T>(x: T): Array<keyof T> {
-      return Object.keys(x) as Array<keyof T>;
-    }
     if (isEmpty(foo)) {
       const bar: never[] = keys(foo);
       expect(Object.keys(bar).length).toBe(0);

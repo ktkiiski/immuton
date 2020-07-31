@@ -3,4 +3,4 @@
  * Whenever one of the functions of this library returns an
  * empty array, it returns a reference to this instance.
  */
-export default [] as never[];
+export default Object.freeze([]) as never[];
