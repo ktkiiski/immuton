@@ -146,3 +146,21 @@ function repeat(count, value) {
   return result;
 }
 ```
+
+Purists would argue that this does not follow the immutability principle but should be written like this instead:
+
+```javascript
+function repeat(count, value) {
+  let result = [];
+  for (let i = 0; i < count; i+= 1) {
+    // A new array with one more value
+    result = result.concat([value]);
+  }
+  return result;
+}
+```
+
+The end-result here is equal to the previous example and it follows the principle more strictly. However, this has a much higher memory-impact than the first example if `count` is a large number. Many intermediate copies of the array are created in the memory and needs to be garbage-collected afterwards.
+
+The performance and memory-footprint _is_ a significant factor in great UX in apps. To allow mutations while "constructing" a value, but forbid them afterwards, is an excellent tradeoff that enables better performance _and_
+the advantages of the immutability principle.
