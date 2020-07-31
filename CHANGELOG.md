@@ -7,6 +7,10 @@ All notable changes to this project will be documented in this file.
 - [`isEmpty`](./isEmpty.ts)
 - [`keys`](./keys.ts)
 
+### Changed
+- [`empty`](./empty.ts) singleton is now frozen, preventing accidental mutations
+- [`propertyless`](./propertyless.ts) singleton is now frozen, preventing accidental mutations
+
 ## 1.0.2
 ### Fixed
 - [`transform`](./transform.ts) missing unchanged values

@@ -3,4 +3,4 @@
  * Whenever one of the functions of this library returns an
  * empty object, it returns a reference to this instance.
  */
-export default {};
+export default Object.freeze({});
