@@ -4,7 +4,7 @@ Working with _[immutable](https://en.wikipedia.org/wiki/Immutable_object) values
 
 **Immuton** is a _collection of utility functions_ for working with _immutable values_, improving the _change detection_ and _memory footprint_ in your app.
 
-Immuton has zero production dependencies, and you may only import the functions you need in your app, allowing your bundler (e.g. [Webpack](https://webpack.js.org/)) to exclude any unused files from this library, resulting in smaller bundle sizes.
+Immuton has _zero production dependencies_, and you may only import the functions you need in your app, allowing your bundler (e.g. [Webpack](https://webpack.js.org/)) to exclude any unused files from this library, resulting in smaller bundle sizes.
 
 It is important to note that these functions can only be used if you follow the _immutability principle_ with all parameters and return values in this library. Mutating values passed to or returned by these functions these functions **will** have dangerous side-effects. To keep this library as lightweight as possible, there is no enforced protection for these mutations.
 
@@ -73,12 +73,14 @@ The following functions are available:
 - [`hasProperties`](./hasProperties.ts)
 - [`includes`](./includes.ts)
 - [`isDefined`](./isDefined.ts)
+- [`isEmpty`](./isEmpty.ts)
 - [`isEqual`](./isEqual.ts)
 - [`isNotNull`](./isNotNull.ts)
 - [`isNotNully`](./isNotNully.ts)
 - [`isNull`](./isNull.ts)
 - [`isNully`](./isNully.ts)
 - [`isUndefined`](./isUndefined.ts)
+- [`keys`](./keys.ts)
 - [`map`](./map.ts)
 - [`mapFilter`](./mapFilter.ts)
 - [`mapObject`](./mapObject.ts)
