@@ -2,14 +2,11 @@ import extend from '../extend';
 
 describe('extend()', () => {
   it('sets all properties to another values', () => {
-    expect(
-      extend(
-        { foo: 'foo', bar: 'bar' },
-        { bar: 'BAR', foobar: 'FOOBAR' },
-      ),
-    ).toEqual(
-      { foo: 'foo', bar: 'BAR', foobar: 'FOOBAR' },
-    );
+    expect(extend({ foo: 'foo', bar: 'bar' }, { bar: 'BAR', foobar: 'FOOBAR' })).toEqual({
+      foo: 'foo',
+      bar: 'BAR',
+      foobar: 'FOOBAR',
+    });
   });
   it('returns another obj instance with transformed values', () => {
     const obj1 = { foo: 'foo', bar: 'bar' };

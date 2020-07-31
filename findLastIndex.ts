@@ -4,9 +4,7 @@
  * @param array array to search
  * @param iteratee whether or not the item matches
  */
-export default function findLastIndex<T>(
-  array: T[], iteratee: (item: T, index: number) => boolean,
-) {
+export default function findLastIndex<T>(array: T[], iteratee: (item: T, index: number) => boolean) {
   for (let index = array.length - 1; index >= 0; index -= 1) {
     if (iteratee(array[index], index)) {
       return index;

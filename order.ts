@@ -7,7 +7,10 @@ import sort from './sort';
  * depending on the direction.
  */
 export default function order<T, K extends keyof T>(
-  values: T[], ordering: K, direction: 'asc' | 'desc', since?: T[K],
+  values: T[],
+  ordering: K,
+  direction: 'asc' | 'desc',
+  since?: T[K],
 ): T[] {
   return sort(values, (item) => item[ordering], direction, since);
 }

@@ -3,9 +3,7 @@ import empty from '../empty';
 
 describe('flatten()', () => {
   it('flattens the given array', () => {
-    expect(flatten([[1], [2, 3], [4], [], [5]])).toEqual(
-      [1, 2, 3, 4, 5],
-    );
+    expect(flatten([[1], [2, 3], [4], [], [5]])).toEqual([1, 2, 3, 4, 5]);
   });
   it('returns another array instance with transformed values', () => {
     const array = [[1], [2, 3], [4], [], [5]];

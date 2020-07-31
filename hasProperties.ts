@@ -13,8 +13,8 @@ import isEqual from './isEqual';
  * @param depth depth of the equality check
  */
 export default function hasProperties(
-  obj: {[key: string]: any},
-  values: {[key: string]: any},
+  obj: { [key: string]: unknown },
+  values: { [key: string]: unknown },
   depth?: number,
 ): boolean {
   for (const key in values) {

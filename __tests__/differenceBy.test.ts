@@ -3,25 +3,27 @@ import empty from '../empty';
 
 describe('differenceBy()', () => {
   it('returns array without items from the second array', () => {
-    expect(differenceBy([{ x: 'A' }, { x: 'B' }, { x: 'C' }, { x: 'D' }], [{ x: 'A' }, { x: 'C' }], (item) => item.x)).toStrictEqual([{ x: 'B' }, { x: 'D' }]);
+    expect(
+      differenceBy([{ x: 'A' }, { x: 'B' }, { x: 'C' }, { x: 'D' }], [{ x: 'A' }, { x: 'C' }], (item) => item.x),
+    ).toStrictEqual([{ x: 'B' }, { x: 'D' }]);
   });
   it('returns array without equal complex items from the second array', () => {
-    expect(differenceBy(
-      [{ x: { a: 'A' } }, { x: { b: 'B' } }, { x: { c: 'C' } }, { x: { d: 'D' } }],
-      [{ x: { a: 'A' } }, { x: { c: 'C' } }],
-      (item) => item.x,
-    )).toStrictEqual(
-      [{ x: { b: 'B' } }, { x: { d: 'D' } }],
-    );
+    expect(
+      differenceBy(
+        [{ x: { a: 'A' } }, { x: { b: 'B' } }, { x: { c: 'C' } }, { x: { d: 'D' } }],
+        [{ x: { a: 'A' } }, { x: { c: 'C' } }],
+        (item) => item.x,
+      ),
+    ).toStrictEqual([{ x: { b: 'B' } }, { x: { d: 'D' } }]);
   });
   it('preserves duplicates from the original array', () => {
-    expect(differenceBy(
-      [{ x: 1 }, { x: 1 }, { x: 2 }, { x: 3 }, { x: 2 }, { x: 3 }, { x: 4 }, { x: 4 }, { x: 2 }],
-      [{ x: 1 }, { x: 3 }],
-      (item) => item.x,
-    )).toStrictEqual(
-      [{ x: 2 }, { x: 2 }, { x: 4 }, { x: 4 }, { x: 2 }],
-    );
+    expect(
+      differenceBy(
+        [{ x: 1 }, { x: 1 }, { x: 2 }, { x: 3 }, { x: 2 }, { x: 3 }, { x: 4 }, { x: 4 }, { x: 2 }],
+        [{ x: 1 }, { x: 3 }],
+        (item) => item.x,
+      ),
+    ).toStrictEqual([{ x: 2 }, { x: 2 }, { x: 4 }, { x: 4 }, { x: 2 }]);
   });
   it('returns another array instance with filtered values', () => {
     const array = [1, 2, 3, 4];

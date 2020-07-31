@@ -3,8 +3,8 @@ import isEqual from './isEqual';
 import empty from './empty';
 
 interface SortableItem {
-  value: any;
-  sorter: any;
+  value: unknown;
+  sorter: unknown;
   index: number;
 }
 
@@ -56,9 +56,8 @@ export default function sort<T, V>(
     return empty;
   }
   const factor = direction === 'desc' ? -1 : 1;
-  const comparator = (a: SortableItem, b: SortableItem) => (
-    compare(a.sorter, b.sorter, direction) || (a.index - b.index) * factor
-  );
+  const comparator = (a: SortableItem, b: SortableItem) =>
+    compare(a.sorter, b.sorter, direction) || (a.index - b.index) * factor;
   // Sort the items
   buffer.sort(comparator);
   // If already in order, return the value
@@ -66,5 +65,5 @@ export default function sort<T, V>(
     return values;
   }
   // Return the sorted values
-  return buffer.map((item) => item.value);
+  return buffer.map((item) => item.value as T);
 }

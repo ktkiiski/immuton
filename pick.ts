@@ -15,11 +15,11 @@ export default function pick<T, K extends keyof T>(obj: T, props: K[]): Pick<T, 
       let output: Pick<T, K> | undefined;
       props.forEach((propName) => {
         if (hasOwnProperty(obj, propName)) {
-          output = output || {} as Pick<T, K>;
+          output = output || ({} as Pick<T, K>);
           output[propName] = obj[propName];
         }
       });
-      return output || propertyless as Pick<T, K>;
+      return output || (propertyless as Pick<T, K>);
     }
   }
   return obj as Pick<T, K>;

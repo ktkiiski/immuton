@@ -13,12 +13,13 @@ import propertyless from './propertyless';
  * @param depth equality check depth
  */
 function objectDifference<T>(
-  oldObj: {[key: string]: T},
-  newObj: {[key: string]: T},
+  oldObj: { [key: string]: T },
+  newObj: { [key: string]: T },
   depth?: number,
-): {[key: string]: T};
+): { [key: string]: T };
 function objectDifference<T>(oldObj: T, newObj: T, depth?: number): Partial<T>;
 function objectDifference<T>(oldObj: T, newObj: T, depth?: number): Partial<T> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let result: any;
   let allDifferent = true;
   for (const key in newObj) {

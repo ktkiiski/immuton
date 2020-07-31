@@ -7,9 +7,7 @@ import isEqual from './isEqual';
  * @param items Items to map
  * @param callback Function that should expand each item in the array
  */
-export default function flatMap<T, R>(
-  items: T[], callback: (item: T, index: number) => R[],
-): R[] {
+export default function flatMap<T, R>(items: T[], callback: (item: T, index: number) => R[]): R[] {
   let results: R[] | undefined;
   items.forEach((item, index) => {
     const val = callback(item, index);
@@ -22,10 +20,10 @@ export default function flatMap<T, R>(
     }
   });
   if (!results) {
-    return items.length ? empty : items as unknown[] as R[];
+    return items.length ? empty : ((items as unknown[]) as R[]);
   }
   if (results.length !== items.length || results.some((a, i) => !isEqual(a, items[i], 0))) {
     return results;
   }
-  return items as unknown[] as R[];
+  return (items as unknown[]) as R[];
 }

@@ -7,16 +7,17 @@ import propertyless from './propertyless';
  * be omitted from the result object.
  */
 export default function build<T, V, K extends string>(
-  source: T[], iterator: (item: T, index: number) => [K, V] | void | undefined | null,
-): {[P in K]: V} {
-  let result: {[P in K]: V} | undefined;
+  source: T[],
+  iterator: (item: T, index: number) => [K, V] | void | undefined | null,
+): { [P in K]: V } {
+  let result: { [P in K]: V } | undefined;
   source.forEach((item, index) => {
     const pair = iterator(item, index);
     if (pair != null) {
-      result = result || {} as {[P in K]: V};
+      result = result || ({} as { [P in K]: V });
       // eslint-disable-next-line prefer-destructuring
       result[pair[0]] = pair[1];
     }
   });
-  return result || propertyless as {[P in K]: V};
+  return result || (propertyless as { [P in K]: V });
 }

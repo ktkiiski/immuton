@@ -10,7 +10,7 @@ import empty from './empty';
 function flatten<T>(arrays: T[][]): T[] {
   const { length } = arrays;
   if (!length) {
-    return arrays as unknown as T[];
+    return (arrays as unknown) as T[];
   }
   let result: T[] | undefined;
   for (let i = 0; i < length; i += 1) {

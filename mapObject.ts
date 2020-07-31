@@ -10,7 +10,8 @@ import empty from './empty';
  * @param iterator Function that returns new value for each key
  */
 export default function mapObject<T, R>(
-  obj: T, iterator: (value: T[string & keyof T], key: string & keyof T) => R,
+  obj: T,
+  iterator: (value: T[string & keyof T], key: string & keyof T) => R,
 ): R[] {
   let result: R[] | undefined;
   for (const key in obj) {

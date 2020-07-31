@@ -9,7 +9,7 @@ import empty from './empty';
  */
 export default function union<T>(arrays: T[][], depth?: number): T[] {
   if (!arrays.length) {
-    return arrays as unknown[] as T[];
+    return (arrays as unknown[]) as T[];
   }
   let foundSingle: T[] | undefined;
   let result: T[] | undefined;

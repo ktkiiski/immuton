@@ -43,7 +43,7 @@ describe('select()', () => {
       c: 3,
       d: '4',
     };
-    const result: { b: string, d: string } = select(obj, isStringValue);
+    const result: { b: string; d: string } = select(obj, isStringValue);
     expect(result).toStrictEqual({ b: '2', d: '4' });
   });
   it('exclude omitted key types', () => {
@@ -70,17 +70,17 @@ describe('select()', () => {
   });
   it('pick nully values', () => {
     const obj = { null: null as null, undef: undefined as undefined, def: 'foobar' as string };
-    const result: { null: null, undef: undefined } = select(obj, isNully);
+    const result: { null: null; undef: undefined } = select(obj, isNully);
     expect(result).toStrictEqual({ null: null, undef: undefined });
   });
   it('omit null values', () => {
     const obj = { null: null as null, notNull: 'foobar' as string, maybe: 1 as number | null };
-    const result: { notNull: string, maybe: number } = select(obj, isNotNull);
+    const result: { notNull: string; maybe: number } = select(obj, isNotNull);
     expect(result).toStrictEqual({ notNull: 'foobar', maybe: 1 });
   });
   it('omit undefined values', () => {
     const obj = { undef: undefined as undefined, def: 'foobar' as string, maybe: 1 as number | undefined };
-    const result: { def: string, maybe: number } = select(obj, isDefined);
+    const result: { def: string; maybe: number } = select(obj, isDefined);
     expect(result).toStrictEqual({ def: 'foobar', maybe: 1 });
   });
   it('omit nully values', () => {
@@ -90,7 +90,7 @@ describe('select()', () => {
       def: 'foobar' as string,
       maybe: 1 as number | undefined | null,
     };
-    const result: { def: string, maybe: number } = select(obj, isNotNully);
+    const result: { def: string; maybe: number } = select(obj, isNotNully);
     expect(result).toStrictEqual({ def: 'foobar', maybe: 1 });
   });
 });

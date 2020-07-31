@@ -4,7 +4,9 @@ import propertyless from '../propertyless';
 describe('build()', () => {
   it('builds the object from the key-value pairs', () => {
     expect(build(['a', 'b', 'c'], (value) => [value, value.toUpperCase()])).toEqual({
-      a: 'A', b: 'B', c: 'C',
+      a: 'A',
+      b: 'B',
+      c: 'C',
     });
   });
   it('omits entries that return undefined', () => {

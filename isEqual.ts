@@ -1,10 +1,7 @@
-/* eslint-disable no-param-reassign */
+/* eslint-disable no-param-reassign,no-plusplus,@typescript-eslint/no-explicit-any */
 import hasOwnProperty from './hasOwnProperty';
 
-/* eslint-disable no-plusplus */
-function isDeepEqual(
-  a: any, b: any, depth = Number.POSITIVE_INFINITY, stack1?: any[], stack2?: any[],
-): boolean {
+function isDeepEqual(a: any, b: any, depth = Number.POSITIVE_INFINITY, stack1?: any[], stack2?: any[]): boolean {
   if (Object.is(a, b)) {
     return true;
   }
@@ -47,7 +44,7 @@ function isDeepEqual(
     if (length !== b.length) {
       return false;
     }
-    for (let i = length; i-- !== 0;) {
+    for (let i = length; i-- !== 0; ) {
       if (!isDeepEqual(a[i], b[i], depth - 1, stack1)) {
         return false;
       }
@@ -64,12 +61,12 @@ function isDeepEqual(
   if (keyCount !== Object.keys(b).length) {
     return false;
   }
-  for (let i = keyCount; i-- !== 0;) {
+  for (let i = keyCount; i-- !== 0; ) {
     if (!hasOwnProperty(b, keyList[i])) {
       return false;
     }
   }
-  for (let i = keyCount; i-- !== 0;) {
+  for (let i = keyCount; i-- !== 0; ) {
     const key = keyList[i];
     stack1 = stack1 || [];
     stack2 = stack2 || [];
@@ -92,7 +89,7 @@ function isDeepEqual(
  * @param b Second value to compare
  */
 function isEqual<T, S>(a: T, b: S, depth?: number): boolean;
-function isEqual(a: any, b: any, depth = Number.POSITIVE_INFINITY): boolean {
+function isEqual(a: unknown, b: unknown, depth = Number.POSITIVE_INFINITY): boolean {
   return isDeepEqual(a, b, depth);
 }
 

@@ -3,9 +3,7 @@ import empty from '../empty';
 
 describe('concat()', () => {
   it('concatenates the given arrays', () => {
-    expect(concat([1], [2, 3], [4], [], [5])).toEqual(
-      [1, 2, 3, 4, 5],
-    );
+    expect(concat([1], [2, 3], [4], [], [5])).toEqual([1, 2, 3, 4, 5]);
   });
   it('does not mutate the original arrays', () => {
     const arr1 = [1, 2, 3];

@@ -22,7 +22,7 @@ describe('isEmpty()', () => {
     }
   });
   it('type-guards for an empty object', () => {
-    const foo: {[key: string]: any} = {};
+    const foo: { [key: string]: unknown } = {};
     function keys<T>(x: T): Array<keyof T> {
       return Object.keys(x) as Array<keyof T>;
     }

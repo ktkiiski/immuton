@@ -4,7 +4,9 @@ describe('transform()', () => {
   it('transforms each value in the object', () => {
     const obj = { a: '1', b: '2', c: '3' };
     expect(transform(obj, (value, key) => key + value)).toStrictEqual({
-      a: 'a1', b: 'b2', c: 'c3',
+      a: 'a1',
+      b: 'b2',
+      c: 'c3',
     });
   });
   it('transforms values partially in the object', () => {

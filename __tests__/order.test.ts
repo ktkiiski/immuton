@@ -3,22 +3,52 @@ import empty from '../empty';
 
 describe('order()', () => {
   it('sorts values in ascending order', () => {
-    expect(order([{ x: 1 }, { x: 10 }, { x: 0 }, { x: 20 }], 'x', 'asc')).toEqual([{ x: 0 }, { x: 1 }, { x: 10 }, { x: 20 }]);
-    expect(order([{ x: 10 }, { x: 1 }, { x: 20 }, { x: 0 }], 'x', 'asc')).toEqual([{ x: 0 }, { x: 1 }, { x: 10 }, { x: 20 }]);
+    expect(order([{ x: 1 }, { x: 10 }, { x: 0 }, { x: 20 }], 'x', 'asc')).toEqual([
+      { x: 0 },
+      { x: 1 },
+      { x: 10 },
+      { x: 20 },
+    ]);
+    expect(order([{ x: 10 }, { x: 1 }, { x: 20 }, { x: 0 }], 'x', 'asc')).toEqual([
+      { x: 0 },
+      { x: 1 },
+      { x: 10 },
+      { x: 20 },
+    ]);
   });
   it('sorts values in descending order', () => {
-    expect(order([{ x: 1 }, { x: 10 }, { x: 0 }, { x: 20 }], 'x', 'desc')).toEqual([{ x: 20 }, { x: 10 }, { x: 1 }, { x: 0 }]);
-    expect(order([{ x: 10 }, { x: 1 }, { x: 20 }, { x: 0 }], 'x', 'desc')).toEqual([{ x: 20 }, { x: 10 }, { x: 1 }, { x: 0 }]);
+    expect(order([{ x: 1 }, { x: 10 }, { x: 0 }, { x: 20 }], 'x', 'desc')).toEqual([
+      { x: 20 },
+      { x: 10 },
+      { x: 1 },
+      { x: 0 },
+    ]);
+    expect(order([{ x: 10 }, { x: 1 }, { x: 20 }, { x: 0 }], 'x', 'desc')).toEqual([
+      { x: 20 },
+      { x: 10 },
+      { x: 1 },
+      { x: 0 },
+    ]);
   });
   it('filters values after the since parameter', () => {
-    expect(order([{ x: 1 }, { x: 10 }, { x: 0 }, { x: 20 }], 'x', 'asc', -1)).toEqual([{ x: 0 }, { x: 1 }, { x: 10 }, { x: 20 }]);
+    expect(order([{ x: 1 }, { x: 10 }, { x: 0 }, { x: 20 }], 'x', 'asc', -1)).toEqual([
+      { x: 0 },
+      { x: 1 },
+      { x: 10 },
+      { x: 20 },
+    ]);
     expect(order([{ x: 1 }, { x: 10 }, { x: 0 }, { x: 20 }], 'x', 'asc', 0)).toEqual([{ x: 1 }, { x: 10 }, { x: 20 }]);
     expect(order([{ x: 1 }, { x: 10 }, { x: 0 }, { x: 20 }], 'x', 'asc', 1)).toEqual([{ x: 10 }, { x: 20 }]);
     expect(order([{ x: 1 }, { x: 10 }, { x: 0 }, { x: 20 }], 'x', 'asc', 10)).toEqual([{ x: 20 }]);
     expect(order([{ x: 1 }, { x: 10 }, { x: 0 }, { x: 20 }], 'x', 'asc', 20)).toEqual([]);
   });
   it('filters values before the since parameter', () => {
-    expect(order([{ x: 1 }, { x: 10 }, { x: 0 }, { x: 20 }], 'x', 'desc', 21)).toEqual([{ x: 20 }, { x: 10 }, { x: 1 }, { x: 0 }]);
+    expect(order([{ x: 1 }, { x: 10 }, { x: 0 }, { x: 20 }], 'x', 'desc', 21)).toEqual([
+      { x: 20 },
+      { x: 10 },
+      { x: 1 },
+      { x: 0 },
+    ]);
     expect(order([{ x: 1 }, { x: 10 }, { x: 0 }, { x: 20 }], 'x', 'desc', 20)).toEqual([{ x: 10 }, { x: 1 }, { x: 0 }]);
     expect(order([{ x: 1 }, { x: 10 }, { x: 0 }, { x: 20 }], 'x', 'desc', 10)).toEqual([{ x: 1 }, { x: 0 }]);
     expect(order([{ x: 1 }, { x: 10 }, { x: 0 }, { x: 20 }], 'x', 'desc', 1)).toEqual([{ x: 0 }]);
@@ -84,7 +114,7 @@ describe('order()', () => {
     expect(order(array2, 'x', 'desc')).toBe(array2);
   });
   it('returns the original array if empty', () => {
-    const array: Array<{x: number}> = [];
+    const array: Array<{ x: number }> = [];
     expect(order(array, 'x', 'asc')).toBe(array);
     expect(order(array, 'x', 'desc')).toBe(array);
   });

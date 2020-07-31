@@ -33,7 +33,7 @@ function mapFilter<T, U>(array: T[], fn: (value: T, index: number) => U | undefi
     }
   });
   if (!altered) {
-    return array as unknown[] as U[];
+    return (array as unknown[]) as U[];
   }
   return result || empty;
 }

@@ -5,7 +5,8 @@ describe('mapObject()', () => {
   it('transforms each key-value pair in the object', () => {
     const obj = { foo: 'FOO', bar: 'BAR' };
     expect(mapObject(obj, (value, key) => [key, value])).toEqual([
-      ['foo', 'FOO'], ['bar', 'BAR'],
+      ['foo', 'FOO'],
+      ['bar', 'BAR'],
     ]);
   });
   it('does not mutate the original object', () => {

@@ -10,16 +10,17 @@ import isEqual from './isEqual';
  * @param iterator function that returns new value for each key
  */
 function transform<T, R>(
-  obj: T, iterator: (value: T[string & keyof T], key: string & keyof T) => R,
-): {[P in keyof T]: R} {
+  obj: T,
+  iterator: (value: T[string & keyof T], key: string & keyof T) => R,
+): { [P in keyof T]: R } {
   let isAltered = false;
-  let result: {[P in keyof T]: R} | undefined;
+  let result: { [P in keyof T]: R } | undefined;
   for (const key in obj) {
     if (hasOwnProperty(obj, key) && typeof key === 'string') {
       const value = obj[key];
       const newValue = iterator(value, key);
       if (result == null) {
-        result = {} as {[P in keyof T]: R};
+        result = {} as { [P in keyof T]: R };
       }
       result[key] = newValue;
       if (!isEqual(value, newValue, 0)) {
@@ -27,7 +28,7 @@ function transform<T, R>(
       }
     }
   }
-  return isAltered ? result as {[P in keyof T]: R} : obj as unknown as {[P in keyof T]: R};
+  return isAltered ? (result as { [P in keyof T]: R }) : ((obj as unknown) as { [P in keyof T]: R });
 }
 
 export default transform;

@@ -20,7 +20,7 @@ function map<T, U>(array: T[], fn: (value: T, index: number, array: T[]) => U): 
     return transformed;
   });
   if (!altered) {
-    return array as unknown[] as U[];
+    return (array as unknown[]) as U[];
   }
   return result.length ? result : empty;
 }

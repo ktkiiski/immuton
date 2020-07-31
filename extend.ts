@@ -9,9 +9,8 @@ import hasOwnProperty from './hasOwnProperty';
  */
 function extend<T, S>(object: T, props: S): T & S {
   const newKeys = Object.keys(props) as Array<keyof S>;
-  if (newKeys.every(
-    (prop) => hasOwnProperty(object, prop) && object[prop] === props[prop] as any,
-  )) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  if (newKeys.every((prop) => hasOwnProperty(object, prop) && object[prop] === (props[prop] as any))) {
     // Object already has the properties
     return object as T & S;
   }

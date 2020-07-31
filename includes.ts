@@ -6,7 +6,7 @@ import isEqual from './isEqual';
  * @param value value to search
  * @param depth maximum recursive comparison depth
  */
-function includes<T>(array: T[], value: any, depth?: number): value is T;
+function includes<T>(array: T[], value: unknown, depth?: number): value is T;
 function includes<T>(array: T[], value: T, depth?: number): boolean {
   if (value != null) {
     const type = typeof value;

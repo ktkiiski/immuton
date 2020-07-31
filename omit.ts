@@ -13,11 +13,12 @@ export default function omit<T, K extends keyof T>(obj: T, props: K[]): Omit<T, 
   if (props.every((prop) => !hasOwnProperty(obj, prop))) {
     return obj;
   }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let output: any;
   for (const key in obj) {
     if (hasOwnProperty(obj, key) && (props as Array<keyof T>).indexOf(key) < 0) {
       // At least one property will be omitted
-      output = output || {} as Omit<T, K>;
+      output = output || ({} as Omit<T, K>);
       output[key] = obj[key];
     }
   }

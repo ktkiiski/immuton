@@ -6,7 +6,10 @@ describe('difference()', () => {
     expect(difference([1, 2, 3, 4], [1, 3])).toStrictEqual([2, 4]);
   });
   it('returns array without equal complex items from the second array', () => {
-    expect(difference([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }], [{ a: 'A' }, { c: 'C' }])).toStrictEqual([{ b: 'B' }, { d: 'D' }]);
+    expect(difference([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }], [{ a: 'A' }, { c: 'C' }])).toStrictEqual([
+      { b: 'B' },
+      { d: 'D' },
+    ]);
   });
   it('preserves duplicates from the original array', () => {
     expect(difference([1, 1, 2, 3, 2, 3, 4, 4, 2], [1, 3])).toStrictEqual([2, 2, 4, 4, 2]);

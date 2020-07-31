@@ -4,7 +4,12 @@ import empty from '../empty';
 describe('union()', () => {
   it('flattens the arrays with unique primitive values', () => {
     expect(union([[1, 2, 3, 4, 5]])).toStrictEqual([1, 2, 3, 4, 5]);
-    expect(union([[1, 2, 3], [4, 5]])).toStrictEqual([1, 2, 3, 4, 5]);
+    expect(
+      union([
+        [1, 2, 3],
+        [4, 5],
+      ]),
+    ).toStrictEqual([1, 2, 3, 4, 5]);
     expect(union([[1], [2, 3], [4], [5]])).toStrictEqual([1, 2, 3, 4, 5]);
     expect(union([[], [1], [], [2, 3], [], [4], [], [5], []])).toStrictEqual([1, 2, 3, 4, 5]);
     expect(union([[1, 2, 3, 4, 5], []])).toStrictEqual([1, 2, 3, 4, 5]);
@@ -12,29 +17,89 @@ describe('union()', () => {
     expect(union([[], [1, 2, 3, 4, 5], []])).toStrictEqual([1, 2, 3, 4, 5]);
   });
   it('flattens the arrays with unique complex values', () => {
-    expect(union<any>([[{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]])).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
-    expect(union<any>([[{ a: 'A' }, { b: 'B' }, { c: 'C' }], [{ d: 'D' }, { e: 'E' }]])).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
-    expect(union<any>([[{ a: 'A' }], [{ b: 'B' }, { c: 'C' }], [{ d: 'D' }], [{ e: 'E' }]])).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
-    expect(union<any>([[], [{ a: 'A' }], [], [{ b: 'B' }, { c: 'C' }], [], [{ d: 'D' }], [], [{ e: 'E' }], []])).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
-    expect(union<any>([[{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }], []])).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
-    expect(union<any>([[], [{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]])).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
-    expect(union<any>([[], [{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }], []])).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
+    expect(
+      union<unknown>([[{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]]),
+    ).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
+    expect(
+      union<unknown>([
+        [{ a: 'A' }, { b: 'B' }, { c: 'C' }],
+        [{ d: 'D' }, { e: 'E' }],
+      ]),
+    ).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
+    expect(
+      union<unknown>([[{ a: 'A' }], [{ b: 'B' }, { c: 'C' }], [{ d: 'D' }], [{ e: 'E' }]]),
+    ).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
+    expect(
+      union<unknown>([[], [{ a: 'A' }], [], [{ b: 'B' }, { c: 'C' }], [], [{ d: 'D' }], [], [{ e: 'E' }], []]),
+    ).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
+    expect(
+      union<unknown>([[{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }], []]),
+    ).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
+    expect(
+      union<unknown>([[], [{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]]),
+    ).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
+    expect(
+      union<unknown>([[], [{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }], []]),
+    ).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
   });
   it('returns an array with unique primitive values', () => {
     expect(union([[1, 2, 1, 3, 2, 4, 4, 5, 1]])).toStrictEqual([1, 2, 3, 4, 5]);
-    expect(union([[1, 2, 1, 3, 2], [4, 4, 1, 5]])).toStrictEqual([1, 2, 3, 4, 5]);
+    expect(
+      union([
+        [1, 2, 1, 3, 2],
+        [4, 4, 1, 5],
+      ]),
+    ).toStrictEqual([1, 2, 3, 4, 5]);
     expect(union([[1], [2, 3], [1, 2, 3, 4], [5, 5, 4, 3, 2, 1]])).toStrictEqual([1, 2, 3, 4, 5]);
     expect(union([[], [1], [1], [2, 3], [], [4, 1], [5], [5], []])).toStrictEqual([1, 2, 3, 4, 5]);
     expect(union([[], [1, 2, 1, 3, 2, 4, 4, 5, 1]])).toStrictEqual([1, 2, 3, 4, 5]);
     expect(union([[1, 2, 1, 3, 2, 4, 4, 5, 1], []])).toStrictEqual([1, 2, 3, 4, 5]);
   });
   it('returns an array with unique complex values', () => {
-    expect(union<any>([[{ a: 'A' }, { b: 'B' }, { a: 'A' }, { c: 'C' }, { b: 'B' }, { d: 'D' }, { d: 'D' }, { e: 'E' }, { a: 'A' }]])).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
-    expect(union<any>([[{ a: 'A' }, { b: 'B' }, { a: 'A' }, { c: 'C' }, { b: 'B' }], [{ d: 'D' }, { d: 'D' }, { a: 'A' }, { e: 'E' }]])).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
-    expect(union<any>([[{ a: 'A' }], [{ b: 'B' }, { c: 'C' }], [{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }], [{ e: 'E' }, { e: 'E' }, { d: 'D' }, { c: 'C' }, { b: 'B' }, { a: 'A' }]])).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
-    expect(union<any>([[], [{ a: 'A' }], [{ a: 'A' }], [{ b: 'B' }, { c: 'C' }], [], [{ d: 'D' }, { a: 'A' }], [{ e: 'E' }], [{ e: 'E' }], []])).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
-    expect(union<any>([[], [{ a: 'A' }, { b: 'B' }, { a: 'A' }, { c: 'C' }, { b: 'B' }, { d: 'D' }, { d: 'D' }, { e: 'E' }, { a: 'A' }]])).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
-    expect(union<any>([[{ a: 'A' }, { b: 'B' }, { a: 'A' }, { c: 'C' }, { b: 'B' }, { d: 'D' }, { d: 'D' }, { e: 'E' }, { a: 'A' }], []])).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
+    expect(
+      union<unknown>([
+        [{ a: 'A' }, { b: 'B' }, { a: 'A' }, { c: 'C' }, { b: 'B' }, { d: 'D' }, { d: 'D' }, { e: 'E' }, { a: 'A' }],
+      ]),
+    ).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
+    expect(
+      union<unknown>([
+        [{ a: 'A' }, { b: 'B' }, { a: 'A' }, { c: 'C' }, { b: 'B' }],
+        [{ d: 'D' }, { d: 'D' }, { a: 'A' }, { e: 'E' }],
+      ]),
+    ).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
+    expect(
+      union<unknown>([
+        [{ a: 'A' }],
+        [{ b: 'B' }, { c: 'C' }],
+        [{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }],
+        [{ e: 'E' }, { e: 'E' }, { d: 'D' }, { c: 'C' }, { b: 'B' }, { a: 'A' }],
+      ]),
+    ).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
+    expect(
+      union<unknown>([
+        [],
+        [{ a: 'A' }],
+        [{ a: 'A' }],
+        [{ b: 'B' }, { c: 'C' }],
+        [],
+        [{ d: 'D' }, { a: 'A' }],
+        [{ e: 'E' }],
+        [{ e: 'E' }],
+        [],
+      ]),
+    ).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
+    expect(
+      union<unknown>([
+        [],
+        [{ a: 'A' }, { b: 'B' }, { a: 'A' }, { c: 'C' }, { b: 'B' }, { d: 'D' }, { d: 'D' }, { e: 'E' }, { a: 'A' }],
+      ]),
+    ).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
+    expect(
+      union<unknown>([
+        [{ a: 'A' }, { b: 'B' }, { a: 'A' }, { c: 'C' }, { b: 'B' }, { d: 'D' }, { d: 'D' }, { e: 'E' }, { a: 'A' }],
+        [],
+      ]),
+    ).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
   });
   it('returns another array instance with transformed values', () => {
     const array = [[1], [2, 3], [4, 1, 2], [], [5]];

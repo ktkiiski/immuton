@@ -1,3 +1,3 @@
-export default function isNully(value: any): value is null | undefined {
+export default function isNully(value: unknown): value is null | undefined {
   return value == null;
 }

@@ -9,7 +9,7 @@ import map from './map';
  * then returns the original reference.
  */
 
-function differenceBy<A, B>(a: A[], b: B[], iteratee: (item: A | B) => any): A[] {
+function differenceBy<A, B>(a: A[], b: B[], iteratee: (item: A | B) => unknown): A[] {
   const exclusions = map(b, iteratee);
   return filter(a, (value) => !includes(exclusions, iteratee(value)));
 }
