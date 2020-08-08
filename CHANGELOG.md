@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## Unreleased
+### Fixed
+- Fixed [`hasProperties`](./hasProperties.ts) parameter typing
+
 ## 1.1.0
 ### Added
 - [`isEmpty`](./isEmpty.ts)
@@ -13,11 +17,11 @@ All notable changes to this project will be documented in this file.
 
 ## 1.0.2
 ### Fixed
-- [`transform`](./transform.ts) missing unchanged values
+- Fixed [`transform`](./transform.ts) missing unchanged values
 
 ## 1.0.1
 ### Fixed
-- [`select`](./select.ts) parameter typing
+- Fixed [`select`](./select.ts) parameter typing
 
 ## 1.0.0
 ### Added

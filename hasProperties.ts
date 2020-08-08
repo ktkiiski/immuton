@@ -12,11 +12,7 @@ import isEqual from './isEqual';
  * @param values the required values
  * @param depth depth of the equality check
  */
-export default function hasProperties(
-  obj: { [key: string]: unknown },
-  values: { [key: string]: unknown },
-  depth?: number,
-): boolean {
+export default function hasProperties<T>(obj: T, values: { [key: string]: unknown }, depth?: number): boolean {
   for (const key in values) {
     if (hasOwnProperty(values, key)) {
       if (!hasOwnProperty(obj, key) || !isEqual(values[key], obj[key], depth)) {
