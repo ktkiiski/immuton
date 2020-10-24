@@ -8,7 +8,7 @@ interface SortableItem {
   index: number;
 }
 
-const buffer: SortableItem[] = [];
+const buffers: SortableItem[][] = [];
 
 /**
  * Sorts the given array of values by using the sorting value returned by the given
@@ -23,6 +23,8 @@ export default function sort<T, V>(
   direction: 'asc' | 'desc' = 'asc',
   since?: V,
 ): T[] {
+  // Re-use the first available buffer, or create a new one
+  const buffer = buffers.pop() || [];
   // NOTE: As JavaScript sort is not stable, make it stable by including the index with each item
   buffer.length = values.length;
   let altered = false;
@@ -51,6 +53,8 @@ export default function sort<T, V>(
     }
     bufferIndex += 1;
   });
+  // Return the buffer to the cache
+  buffers.push(buffer);
   if (values.length && !buffer.length) {
     // Filtered out everything
     return empty;

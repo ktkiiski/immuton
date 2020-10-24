@@ -97,4 +97,9 @@ describe('sort()', () => {
     expect(sort(['1', '10', '0', '20'], (val) => parseFloat(val), 'asc', 20)).toBe(empty);
     expect(sort(['1', '10', '0', '20'], (val) => parseFloat(val), 'desc', 0)).toBe(empty);
   });
+  it('supports recursive sorting', () => {
+    const items = [{ values: [1, 10, 2] }, { values: [13, 2, 7] }, { values: [0, 3, 9] }];
+    const expected = [{ values: [0, 3, 9] }, { values: [1, 10, 2] }, { values: [13, 2, 7] }];
+    expect(sort(items, (item) => sort(item.values, (x) => x, 'desc')[0], 'asc')).toEqual(expected);
+  });
 });

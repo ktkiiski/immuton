@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## Unreleased
+### Fixed
+- Fixed recursive usage of [`sort`](./sort.ts)
+
 ## 1.1.1
 ### Fixed
 - Fixed [`hasProperties`](./hasProperties.ts) parameter typing
