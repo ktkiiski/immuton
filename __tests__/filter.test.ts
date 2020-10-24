@@ -1,5 +1,5 @@
-import filter from '../filter';
 import empty from '../empty';
+import filter from '../filter';
 
 describe('filter()', () => {
   it('returns array of matching items', () => {

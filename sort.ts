@@ -1,6 +1,6 @@
 import compare from './compare';
-import isEqual from './isEqual';
 import empty from './empty';
+import isEqual from './isEqual';
 
 interface SortableItem {
   value: unknown;

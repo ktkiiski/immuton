@@ -1,5 +1,5 @@
-import propertyless from './propertyless';
 import hasOwnProperty from './hasOwnProperty';
+import propertyless from './propertyless';
 
 /* eslint-disable no-restricted-syntax */
 /**

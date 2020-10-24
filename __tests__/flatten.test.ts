@@ -1,5 +1,5 @@
-import flatten from '../flatten';
 import empty from '../empty';
+import flatten from '../flatten';
 
 describe('flatten()', () => {
   it('flattens the given array', () => {

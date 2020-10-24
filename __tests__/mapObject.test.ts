@@ -1,5 +1,5 @@
-import mapObject from '../mapObject';
 import empty from '../empty';
+import mapObject from '../mapObject';
 
 describe('mapObject()', () => {
   it('transforms each key-value pair in the object', () => {

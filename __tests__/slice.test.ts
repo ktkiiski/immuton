@@ -1,5 +1,5 @@
-import slice from '../slice';
 import empty from '../empty';
+import slice from '../slice';
 
 describe('slice()', () => {
   it('slices the array', () => {

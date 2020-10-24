@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
-import keys from '../keys';
 import empty from '../empty';
+import keys from '../keys';
 
 describe('keys()', () => {
   it('returns each property name of the object', () => {

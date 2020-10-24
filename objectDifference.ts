@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-syntax */
-import isEqual from './isEqual';
 import hasOwnProperty from './hasOwnProperty';
+import isEqual from './isEqual';
 import propertyless from './propertyless';
 
 /**

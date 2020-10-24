@@ -1,11 +1,11 @@
-import select from '../select';
-import propertyless from '../propertyless';
-import isNull from '../isNull';
-import isUndefined from '../isUndefined';
-import isNully from '../isNully';
-import isNotNull from '../isNotNull';
 import isDefined from '../isDefined';
+import isNotNull from '../isNotNull';
 import isNotNully from '../isNotNully';
+import isNull from '../isNull';
+import isNully from '../isNully';
+import isUndefined from '../isUndefined';
+import propertyless from '../propertyless';
+import select from '../select';
 
 describe('select()', () => {
   it('filters each property in the object', () => {

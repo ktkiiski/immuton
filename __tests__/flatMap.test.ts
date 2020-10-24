@@ -1,5 +1,5 @@
-import flatMap from '../flatMap';
 import empty from '../empty';
+import flatMap from '../flatMap';
 
 describe('flatMap()', () => {
   it('transforms each value in the array', () => {

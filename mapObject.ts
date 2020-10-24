@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-syntax */
-import hasOwnProperty from './hasOwnProperty';
 import empty from './empty';
+import hasOwnProperty from './hasOwnProperty';
 
 /**
  * Converts an object to an array of items by calling the given

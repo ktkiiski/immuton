@@ -1,5 +1,5 @@
-import reject from '../reject';
 import empty from '../empty';
+import reject from '../reject';
 
 describe('reject()', () => {
   it('returns array of matching items', () => {

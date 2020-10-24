@@ -1,5 +1,5 @@
-import includes from './includes';
 import empty from './empty';
+import includes from './includes';
 
 /**
  * Returns an array of unique items in the all of the given arrays.

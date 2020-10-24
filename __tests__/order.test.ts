@@ -1,5 +1,5 @@
-import order from '../order';
 import empty from '../empty';
+import order from '../order';
 
 describe('order()', () => {
   it('sorts values in ascending order', () => {

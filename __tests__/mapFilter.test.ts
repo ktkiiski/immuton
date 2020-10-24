@@ -1,5 +1,5 @@
-import mapFilter from '../mapFilter';
 import empty from '../empty';
+import mapFilter from '../mapFilter';
 
 describe('mapFilter()', () => {
   it('transforms each value in the array', () => {

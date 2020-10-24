@@ -1,5 +1,5 @@
-import union from '../union';
 import empty from '../empty';
+import union from '../union';
 
 describe('union()', () => {
   it('flattens the arrays with unique primitive values', () => {

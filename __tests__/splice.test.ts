@@ -1,5 +1,5 @@
-import splice from '../splice';
 import empty from '../empty';
+import splice from '../splice';
 
 describe('splice()', () => {
   it('deletes items from the array', () => {

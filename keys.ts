@@ -1,5 +1,5 @@
-import { Key } from './types';
 import empty from './empty';
+import { Key } from './types';
 
 /**
  * Returns an array of own enumerable string properties of the given object.
