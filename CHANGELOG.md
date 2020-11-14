@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 
 ## Unreleased
+### Changed
+- Improved [`hasOwnProperty`](./hasOwnProperty.ts) type-guarding
+
+## 1.1.2
 ### Fixed
 - Fixed recursive usage of [`sort`](./sort.ts)
 
