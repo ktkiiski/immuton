@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## Unreleased
+## 1.2.0
 ### Changed
 - Improved [`hasOwnProperty`](./hasOwnProperty.ts) type-guarding
 
