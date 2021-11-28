@@ -20,6 +20,7 @@ const buffers: SortableItem[][] = [];
 export default function sort<T, V>(
   values: T[],
   iterator: (item: T, index: number) => V,
+  // eslint-disable-next-line default-param-last
   direction: 'asc' | 'desc' = 'asc',
   since?: V,
 ): T[] {

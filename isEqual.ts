@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign,no-plusplus,@typescript-eslint/no-explicit-any */
 import hasOwnProperty from './hasOwnProperty';
 
+// eslint-disable-next-line default-param-last
 function isDeepEqual(a: any, b: any, depth = Number.POSITIVE_INFINITY, stack1?: any[], stack2?: any[]): boolean {
   if (Object.is(a, b)) {
     return true;
