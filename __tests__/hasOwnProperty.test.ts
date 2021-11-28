@@ -30,4 +30,17 @@ describe('hasOwnProperty()', () => {
       fail();
     }
   });
+  it('type-guards an union type to a matching sub-type', () => {
+    const something: { firstName: string; lastName: string } | { name: string } = {
+      firstName: 'John',
+      lastName: 'Smith',
+    };
+    if (hasOwnProperty(something, 'firstName')) {
+      const obj: { firstName: string; lastName: string } = something;
+      expect(obj.firstName).toBe('John');
+      expect(obj.lastName).toBe('Smith');
+    } else {
+      fail();
+    }
+  });
 });
