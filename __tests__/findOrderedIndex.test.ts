@@ -1,4 +1,4 @@
-import findOrderedIndex from '../findOrderedIndex';
+import findOrderedIndex from '../src/findOrderedIndex.js';
 
 describe('orderedIndex()', () => {
   it('inserts smallest item to the first index when ascending', () => {

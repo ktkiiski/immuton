@@ -1,7 +1,0 @@
-# Do not publish the original source files
-*.ts
-# Do not publish test related files
-.eslintrc.*
-.eslintignore
-__tests__/
-tsconfig.test.json

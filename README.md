@@ -49,7 +49,7 @@ Import the helpers to your app where needed. For example:
 import map from 'immuton/map';
 
 // ...
-const numbers = map([1, 2, 3], value => value * 2);
+const numbers = map([1, 2, 3], (value) => value * 2);
 ```
 
 ## Available functions and helpers
@@ -102,7 +102,6 @@ The following singleton object and array instances are also available:
 - [`empty`](./empty.ts)
 - [`propertyless`](./propertyless.ts)
 
-
 ## What does immutability mean?
 
 "Immutability" can be defined as follows:
@@ -138,7 +137,7 @@ The following function still follows the immutability principle:
 ```javascript
 function repeat(count, value) {
   const result = [];
-  for (let i = 0; i < count; i+= 1) {
+  for (let i = 0; i < count; i += 1) {
     // This is OK, as we are still constructing the value
     result.push(value);
   }
@@ -152,7 +151,7 @@ Purists would argue that this does not follow the immutability principle but sho
 ```javascript
 function repeat(count, value) {
   let result = [];
-  for (let i = 0; i < count; i+= 1) {
+  for (let i = 0; i < count; i += 1) {
     // A new array with one more value
     result = result.concat([value]);
   }

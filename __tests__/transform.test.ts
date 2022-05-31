@@ -1,4 +1,4 @@
-import transform from '../transform';
+import transform from '../src/transform.js';
 
 describe('transform()', () => {
   it('transforms each value in the object', () => {

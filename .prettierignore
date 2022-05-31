@@ -1,0 +1,4 @@
+# don't ever prettify node_modules
+node_modules
+# Do not prettify built files
+/lib

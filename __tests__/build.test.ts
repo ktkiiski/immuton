@@ -1,5 +1,5 @@
-import build from '../build';
-import propertyless from '../propertyless';
+import build from '../src/build.js';
+import propertyless from '../src/propertyless.js';
 
 describe('build()', () => {
   it('builds the object from the key-value pairs', () => {

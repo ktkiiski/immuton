@@ -1,4 +1,4 @@
-import append from '../append';
+import append from '../src/append.js';
 
 describe('append()', () => {
   it('insert the items into the array', () => {

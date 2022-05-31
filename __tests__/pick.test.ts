@@ -1,5 +1,5 @@
-import pick from '../pick';
-import propertyless from '../propertyless';
+import pick from '../src/pick.js';
+import propertyless from '../src/propertyless.js';
 
 describe('pick()', () => {
   it('picks each given property of the object', () => {

@@ -1,5 +1,5 @@
-import isEmpty from '../isEmpty';
-import keys from '../keys';
+import isEmpty from '../src/isEmpty.js';
+import keys from '../src/keys.js';
 
 describe('isEmpty()', () => {
   it('returns true for an object without own properties', () => {

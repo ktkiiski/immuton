@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import isEqual from '../isEqual';
+import isEqual from '../src/isEqual.js';
 
 describe('isEqual()', () => {
   it('returns true for two null values', () => {

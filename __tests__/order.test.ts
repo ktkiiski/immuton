@@ -1,5 +1,5 @@
-import empty from '../empty';
-import order from '../order';
+import empty from '../src/empty.js';
+import order from '../src/order.js';
 
 describe('order()', () => {
   it('sorts values in ascending order', () => {

@@ -1,5 +1,5 @@
-import empty from '../empty';
-import union from '../union';
+import empty from '../src/empty.js';
+import union from '../src/union.js';
 
 describe('union()', () => {
   it('flattens the arrays with unique primitive values', () => {
@@ -17,30 +17,50 @@ describe('union()', () => {
     expect(union([[], [1, 2, 3, 4, 5], []])).toStrictEqual([1, 2, 3, 4, 5]);
   });
   it('flattens the arrays with unique complex values', () => {
-    expect(
-      union<unknown>([[{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]]),
-    ).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
+    expect(union<unknown>([[{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]])).toStrictEqual([
+      { a: 'A' },
+      { b: 'B' },
+      { c: 'C' },
+      { d: 'D' },
+      { e: 'E' },
+    ]);
     expect(
       union<unknown>([
         [{ a: 'A' }, { b: 'B' }, { c: 'C' }],
         [{ d: 'D' }, { e: 'E' }],
       ]),
     ).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
-    expect(
-      union<unknown>([[{ a: 'A' }], [{ b: 'B' }, { c: 'C' }], [{ d: 'D' }], [{ e: 'E' }]]),
-    ).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
+    expect(union<unknown>([[{ a: 'A' }], [{ b: 'B' }, { c: 'C' }], [{ d: 'D' }], [{ e: 'E' }]])).toStrictEqual([
+      { a: 'A' },
+      { b: 'B' },
+      { c: 'C' },
+      { d: 'D' },
+      { e: 'E' },
+    ]);
     expect(
       union<unknown>([[], [{ a: 'A' }], [], [{ b: 'B' }, { c: 'C' }], [], [{ d: 'D' }], [], [{ e: 'E' }], []]),
     ).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
-    expect(
-      union<unknown>([[{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }], []]),
-    ).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
-    expect(
-      union<unknown>([[], [{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]]),
-    ).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
-    expect(
-      union<unknown>([[], [{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }], []]),
-    ).toStrictEqual([{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]);
+    expect(union<unknown>([[{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }], []])).toStrictEqual([
+      { a: 'A' },
+      { b: 'B' },
+      { c: 'C' },
+      { d: 'D' },
+      { e: 'E' },
+    ]);
+    expect(union<unknown>([[], [{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }]])).toStrictEqual([
+      { a: 'A' },
+      { b: 'B' },
+      { c: 'C' },
+      { d: 'D' },
+      { e: 'E' },
+    ]);
+    expect(union<unknown>([[], [{ a: 'A' }, { b: 'B' }, { c: 'C' }, { d: 'D' }, { e: 'E' }], []])).toStrictEqual([
+      { a: 'A' },
+      { b: 'B' },
+      { c: 'C' },
+      { d: 'D' },
+      { e: 'E' },
+    ]);
   });
   it('returns an array with unique primitive values', () => {
     expect(union([[1, 2, 1, 3, 2, 4, 4, 5, 1]])).toStrictEqual([1, 2, 3, 4, 5]);

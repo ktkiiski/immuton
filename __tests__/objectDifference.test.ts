@@ -1,5 +1,5 @@
-import objectDifference from '../objectDifference';
-import propertyless from '../propertyless';
+import objectDifference from '../src/objectDifference.js';
+import propertyless from '../src/propertyless.js';
 
 describe('objectDifference()', () => {
   it('returns properties that have different values', () => {

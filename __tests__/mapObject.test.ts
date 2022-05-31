@@ -1,5 +1,5 @@
-import empty from '../empty';
-import mapObject from '../mapObject';
+import empty from '../src/empty.js';
+import mapObject from '../src/mapObject.js';
 
 describe('mapObject()', () => {
   it('transforms each key-value pair in the object', () => {

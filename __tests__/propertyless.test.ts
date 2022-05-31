@@ -1,5 +1,5 @@
-import propertyless from '../propertyless';
-import { Propertyless } from '../types';
+import propertyless from '../src/propertyless.js';
+import type { Propertyless } from '../src/types.js';
 
 describe('propertyless singleton', () => {
   it('is an object without own enumerable properties', () => {

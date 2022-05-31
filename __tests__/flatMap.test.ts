@@ -1,5 +1,5 @@
-import empty from '../empty';
-import flatMap from '../flatMap';
+import empty from '../src/empty.js';
+import flatMap from '../src/flatMap.js';
 
 describe('flatMap()', () => {
   it('transforms each value in the array', () => {

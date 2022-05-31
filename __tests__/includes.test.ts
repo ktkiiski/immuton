@@ -1,4 +1,4 @@
-import includes from '../includes';
+import includes from '../src/includes.js';
 
 describe('includes()', () => {
   it('returns true if array contains null', () => {

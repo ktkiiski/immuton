@@ -1,5 +1,5 @@
-import differenceBy from '../differenceBy';
-import empty from '../empty';
+import differenceBy from '../src/differenceBy.js';
+import empty from '../src/empty.js';
 
 describe('differenceBy()', () => {
   it('returns array without items from the second array', () => {

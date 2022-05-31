@@ -1,5 +1,5 @@
-import concat from '../concat';
-import empty from '../empty';
+import concat from '../src/concat.js';
+import empty from '../src/empty.js';
 
 describe('concat()', () => {
   it('concatenates the given arrays', () => {

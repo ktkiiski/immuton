@@ -1,4 +1,4 @@
-import editProperty from '../editProperty';
+import editProperty from '../src/editProperty.js';
 
 describe('editProperty()', () => {
   it('sets property to another value', () => {

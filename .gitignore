@@ -1,7 +1,6 @@
 # Ignore installed node packages
 /node_modules
-# Ignore compiled JavaScript and TypeScript definition files...
-*.d.ts
-*.js
+# Ignore built files
+/lib
 # Ignore packaged files
 *.tgz

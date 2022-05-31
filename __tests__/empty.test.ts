@@ -1,4 +1,4 @@
-import empty from '../empty';
+import empty from '../src/empty.js';
 
 describe('empty singleton', () => {
   it('is an empty array', () => {

@@ -1,4 +1,4 @@
-import hasProperties from '../hasProperties';
+import hasProperties from '../src/hasProperties.js';
 
 describe('hasProperties()', () => {
   it('returns true if object has all given properties', () => {

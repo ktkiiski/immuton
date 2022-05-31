@@ -1,5 +1,5 @@
-import empty from '../empty';
-import slice from '../slice';
+import empty from '../src/empty.js';
+import slice from '../src/slice.js';
 
 describe('slice()', () => {
   it('slices the array', () => {

@@ -1,4 +1,4 @@
-import set from '../set';
+import set from '../src/set.js';
 
 describe('set()', () => {
   it('sets property to another value', () => {

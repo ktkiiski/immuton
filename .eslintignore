@@ -1,6 +1,4 @@
 # don't ever lint node_modules
 node_modules
-# Do not lint compiled JavaScript files
-*.js
-# Do not lint compiled TypeScript definition files
-*.d.ts
+# Do not lint built files
+/lib

@@ -1,5 +1,5 @@
-import omit from '../omit';
-import propertyless from '../propertyless';
+import omit from '../src/omit.js';
+import propertyless from '../src/propertyless.js';
 
 describe('omit()', () => {
   it('omits each given property of the object', () => {

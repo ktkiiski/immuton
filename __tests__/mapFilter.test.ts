@@ -1,5 +1,5 @@
-import empty from '../empty';
-import mapFilter from '../mapFilter';
+import empty from '../src/empty.js';
+import mapFilter from '../src/mapFilter.js';
 
 describe('mapFilter()', () => {
   it('transforms each value in the array', () => {

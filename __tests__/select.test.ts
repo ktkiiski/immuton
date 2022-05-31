@@ -1,11 +1,11 @@
-import isDefined from '../isDefined';
-import isNotNull from '../isNotNull';
-import isNotNully from '../isNotNully';
-import isNull from '../isNull';
-import isNully from '../isNully';
-import isUndefined from '../isUndefined';
-import propertyless from '../propertyless';
-import select from '../select';
+import isDefined from '../src/isDefined.js';
+import isNotNull from '../src/isNotNull.js';
+import isNotNully from '../src/isNotNully.js';
+import isNull from '../src/isNull.js';
+import isNully from '../src/isNully.js';
+import isUndefined from '../src/isUndefined.js';
+import propertyless from '../src/propertyless.js';
+import select from '../src/select.js';
 
 describe('select()', () => {
   it('filters each property in the object', () => {

@@ -1,4 +1,4 @@
-import findLastIndex from '../findLastIndex';
+import findLastIndex from '../src/findLastIndex.js';
 
 describe('findLastIndex', () => {
   it('returns the index of a matching item', () => {

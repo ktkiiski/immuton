@@ -1,4 +1,4 @@
-import hasOwnProperty from '../hasOwnProperty';
+import hasOwnProperty from '../src/hasOwnProperty.js';
 
 describe('hasOwnProperty()', () => {
   it('returns true if object has own property', () => {

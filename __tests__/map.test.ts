@@ -1,4 +1,4 @@
-import map from '../map';
+import map from '../src/map.js';
 
 describe('map()', () => {
   it('transforms each value in the array', () => {

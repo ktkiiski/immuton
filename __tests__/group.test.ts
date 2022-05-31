@@ -1,5 +1,5 @@
-import group from '../group';
-import propertyless from '../propertyless';
+import group from '../src/group.js';
+import propertyless from '../src/propertyless.js';
 
 describe('group()', () => {
   it('groups values with different selector results to different keys', () => {

@@ -1,4 +1,4 @@
-import extend from '../extend';
+import extend from '../src/extend.js';
 
 describe('extend()', () => {
   it('sets all properties to another values', () => {

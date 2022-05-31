@@ -1,5 +1,5 @@
-import empty from '../empty';
-import filter from '../filter';
+import empty from '../src/empty.js';
+import filter from '../src/filter.js';
 
 describe('filter()', () => {
   it('returns array of matching items', () => {

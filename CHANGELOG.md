@@ -2,37 +2,58 @@
 
 All notable changes to this project will be documented in this file.
 
-## 1.2.0
+## Unreleased
+
 ### Changed
+
+- **Breaking change**: the library is now ESM only, and requires Node version 14 or newer.
+
+## 1.2.0
+
+### Changed
+
 - Improved [`hasOwnProperty`](./hasOwnProperty.ts) type-guarding
 
 ## 1.1.2
+
 ### Fixed
+
 - Fixed recursive usage of [`sort`](./sort.ts)
 
 ## 1.1.1
+
 ### Fixed
+
 - Fixed [`hasProperties`](./hasProperties.ts) parameter typing
 
 ## 1.1.0
+
 ### Added
+
 - [`isEmpty`](./isEmpty.ts)
 - [`keys`](./keys.ts)
 
 ### Changed
+
 - [`empty`](./empty.ts) singleton is now frozen, preventing accidental mutations
 - [`propertyless`](./propertyless.ts) singleton is now frozen, preventing accidental mutations
 
 ## 1.0.2
+
 ### Fixed
+
 - Fixed [`transform`](./transform.ts) missing unchanged values
 
 ## 1.0.1
+
 ### Fixed
+
 - Fixed [`select`](./select.ts) parameter typing
 
 ## 1.0.0
+
 ### Added
+
 - [`append`](./append.ts)
 - [`build`](./build.ts)
 - [`concat`](./concat.ts)

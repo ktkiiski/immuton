@@ -1,5 +1,5 @@
-import empty from '../empty';
-import flatten from '../flatten';
+import empty from '../src/empty.js';
+import flatten from '../src/flatten.js';
 
 describe('flatten()', () => {
   it('flattens the given array', () => {
