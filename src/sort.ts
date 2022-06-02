@@ -60,9 +60,7 @@ export default function sort<T, V>(
     // Filtered out everything
     return empty;
   }
-  const factor = direction === 'desc' ? -1 : 1;
-  const comparator = (a: SortableItem, b: SortableItem) =>
-    compare(a.sorter, b.sorter, direction) || (a.index - b.index) * factor;
+  const comparator = (a: SortableItem, b: SortableItem) => compare(a.sorter, b.sorter, direction) || a.index - b.index;
   // Sort the items
   buffer.sort(comparator);
   // If already in order, return the value

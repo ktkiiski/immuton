@@ -8,6 +8,10 @@ All notable changes to this project will be documented in this file.
 
 - **Breaking change**: the library is now ESM only, and requires Node version 14 or newer.
 
+### Fixed
+
+- Fixed ordering of equal items in [`sort`](./src/sort.ts) and [`order`](./src/order.ts) with descending direction
+
 ## 1.2.0
 
 ### Changed

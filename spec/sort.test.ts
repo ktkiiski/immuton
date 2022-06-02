@@ -78,10 +78,14 @@ describe('sort()', () => {
     );
   });
   it('preserves original order for equal items when sorting ascending', () => {
-    const a1 = { x: 'a' };
-    const a2 = { x: 'a' };
-    const b1 = { x: 'b' };
-    const b2 = { x: 'b' };
+    const a1 = { x: 'a', index: 1 };
+    const a2 = { x: 'a', index: 2 };
+    const b1 = { x: 'b', index: 1 };
+    const b2 = { x: 'b', index: 2 };
+    deepStrictEqual(
+      sort([a1, b1, a2, b2], (val) => val.x, 'asc'),
+      [a1, a2, b1, b2],
+    );
     deepStrictEqual(
       sort([a2, b1, a1, b2], (val) => val.x, 'asc'),
       [a2, a1, b1, b2],
@@ -92,10 +96,14 @@ describe('sort()', () => {
     );
   });
   it('preserves original order for equal items when sorting descending', () => {
-    const a1 = { x: 'a' };
-    const a2 = { x: 'a' };
-    const b1 = { x: 'b' };
-    const b2 = { x: 'b' };
+    const a1 = { x: 'a', index: 1 };
+    const a2 = { x: 'a', index: 2 };
+    const b1 = { x: 'b', index: 1 };
+    const b2 = { x: 'b', index: 2 };
+    deepStrictEqual(
+      sort([a1, b1, a2, b2], (val) => val.x, 'desc'),
+      [b1, b2, a1, a2],
+    );
     deepStrictEqual(
       sort([a2, b1, a1, b2], (val) => val.x, 'desc'),
       [b1, b2, a2, a1],
