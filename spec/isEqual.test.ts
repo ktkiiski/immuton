@@ -1,50 +1,51 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { strictEqual } from 'assert';
 import isEqual from '../src/isEqual.js';
 
 describe('isEqual()', () => {
   it('returns true for two null values', () => {
-    expect(isEqual(null, null)).toBe(true);
+    strictEqual(isEqual(null, null), true);
   });
   it('returns false for null and undefined', () => {
-    expect(!isEqual(null, undefined)).toBe(true);
+    strictEqual(!isEqual(null, undefined), true);
   });
   it('returns true for equal integers', () => {
-    expect(isEqual(123, 123)).toBe(true);
+    strictEqual(isEqual(123, 123), true);
   });
   it('returns false for unequal integers', () => {
-    expect(isEqual(123, -123)).toBe(false);
+    strictEqual(isEqual(123, -123), false);
   });
   it('returns true for NaN values', () => {
-    expect(isEqual(NaN, NaN)).toBe(true);
+    strictEqual(isEqual(NaN, NaN), true);
   });
   it('returns false for positive and negative zero', () => {
-    expect(isEqual(-0, 0)).toBe(false);
+    strictEqual(isEqual(-0, 0), false);
   });
   it('returns true for infinities', () => {
-    expect(isEqual(Infinity, Infinity)).toBe(true);
-    expect(isEqual(-Infinity, -Infinity)).toBe(true);
+    strictEqual(isEqual(Infinity, Infinity), true);
+    strictEqual(isEqual(-Infinity, -Infinity), true);
   });
   it('returns true for objects with equal attributes', () => {
-    expect(isEqual({ name: 'John', age: 1 }, { name: 'John', age: 1 })).toBe(true);
+    strictEqual(isEqual({ name: 'John', age: 1 }, { name: 'John', age: 1 }), true);
   });
   it('returns false for objects with unequal attributes', () => {
-    expect(isEqual({ name: 'John', age: 1 }, { name: 'Jane', age: 1 })).toBe(false);
+    strictEqual(isEqual({ name: 'John', age: 1 }, { name: 'Jane', age: 1 }), false);
   });
   it('returns false for objects with different properties', () => {
-    expect(isEqual({ name: 'John', foo: 'Z' }, { name: 'John', bar: 'Z' })).toBe(false);
+    strictEqual(isEqual({ name: 'John', foo: 'Z' }, { name: 'John', bar: 'Z' }), false);
   });
   it('returns true for objects with recursive equal attributes', () => {
     const a: any = { name: 'John' };
     a.self = a;
     const b: any = { name: 'John' };
     b.self = b;
-    expect(isEqual(a, b)).toBe(true);
+    strictEqual(isEqual(a, b), true);
   });
   it('returns true for objects with cross-referencing attributes', () => {
     const a: any = { name: 'John' };
     const b: any = { name: 'John', ref: a };
     a.ref = b;
-    expect(isEqual(a, b)).toBe(true);
+    strictEqual(isEqual(a, b), true);
   });
   it('returns true for objects with deep recursive equal attributes', () => {
     const a1: any = { name: 'John 1' };
@@ -53,7 +54,7 @@ describe('isEqual()', () => {
     const b1: any = { name: 'John 1' };
     const b2: any = { name: 'John 2', ref: b1 };
     b1.ref = b2;
-    expect(isEqual(a1, b1)).toBe(true);
+    strictEqual(isEqual(a1, b1), true);
   });
   it('returns false for objects with recursive unequal attributes', () => {
     const a: any = { name: 'John' };
@@ -62,7 +63,7 @@ describe('isEqual()', () => {
     const b: any = { name: 'John' };
     b.self = b;
     b.x = 'YYY';
-    expect(isEqual(a, b)).toBe(false);
+    strictEqual(isEqual(a, b), false);
   });
   it('returns false for objects with deep recursive unequal attributes', () => {
     const a1: any = { name: 'John 1' };
@@ -71,6 +72,6 @@ describe('isEqual()', () => {
     const b1: any = { name: 'John 1' };
     const b2: any = { name: 'John 2', ref: b1, x: 'YYY' };
     b1.ref = b2;
-    expect(isEqual(a1, b1)).toBe(false);
+    strictEqual(isEqual(a1, b1), false);
   });
 });

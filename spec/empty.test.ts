@@ -1,14 +1,15 @@
+import { strictEqual, throws } from 'assert';
 import empty from '../src/empty.js';
 
 describe('empty singleton', () => {
   it('is an empty array', () => {
-    expect(Array.isArray(empty)).toBe(true);
-    expect(empty.length).toBe(0);
-    expect(empty[0]).toBeUndefined();
+    strictEqual(Array.isArray(empty), true);
+    strictEqual(empty.length, 0);
+    strictEqual(empty[0], undefined);
   });
   it('is frozen', () => {
-    expect(Object.isFrozen(empty)).toBe(true);
+    strictEqual(Object.isFrozen(empty), true);
     const array: unknown[] = empty;
-    expect(() => array.push('hello')).toThrow();
+    throws(() => array.push('hello'));
   });
 });
