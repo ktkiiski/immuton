@@ -10,7 +10,9 @@
   "prettier": "eslint-config-broilerplate/prettier.config",
   "files": [
     "lib",
-    "src"
+    "src",
+    "CHANGELOG.md",
+    "README.md"
   ],
   "engines": {
     "node": ">=14.16"
